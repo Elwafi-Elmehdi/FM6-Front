@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial,'Poppins';
+}
+
+.btn__fm6 {
+  background-color: #EC8C24;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+}
+.btn__fm6:hover{
+  background-color: #EC8C24;
+}
+

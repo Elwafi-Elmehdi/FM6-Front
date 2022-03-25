@@ -1,0 +1,43 @@
+.card {
+  box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 27px;
+  padding: 100px;
+}
+
+
+.card-body > * {
+  margin: 20px 0px;
+  position: relative;
+}
+
+.login__input{
+  border: 1px solid #EC8C24;
+  box-sizing: border-box;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 22px;
+  background: #EDEDED;
+  height: 62px;
+}
+#logo__fm6 {
+  width: 398px;
+  height: 72px;
+}
+
+.login__btn {
+  position: absolute;
+  left: 30%;
+  width: 40%;
+  height: 67px;
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 22px;
+  border: 1px solid #EC8C24;
+  text-align: center;
+}
+

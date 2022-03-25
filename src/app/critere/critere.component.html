@@ -1,0 +1,83 @@
+<div class="criterefields">
+  <form action="#!" >
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" [(ngModel)]="critere.age">
+
+    <label for="anciennete">Anciennete</label>
+    <input type="number" id="anciennete" name="anciennete" [(ngModel)]="critere.anciennete" >
+
+    <label for="etatPhysique">Etat Physique</label>
+    <input type="number" id="etatPhysique" name="etatPhysique" [(ngModel)]="critere.etatPhysique">
+
+    <label for="valeurChaqueEnfant">Point Pour Chaque Enfant</label>
+    <input type="number" id="valeurChaqueEnfant" name="valeurChaqueEnfant" [(ngModel)]="critere.valeurChaqueEnfant">
+
+    <!-- START Environnement -->
+    <label for="environnementCivil">Environnement Civil</label>
+    <input type="number" id="environnementCivil" name="environnementCivil" [(ngModel)]="critere.environnementCivil">
+    <label for="environnementRural">Environnement Rural</label>
+    <input type="number" id="environnementRural" name="environnementRural" [(ngModel)]="critere.environnementRural">
+    <!-- END Environnement -->
+
+    <!-- START Situation familliale -->
+
+    <h3 id="situationFamilliale">Situation Familliale </h3>
+
+    <label for="sfCelibataire">Celibataire</label>
+    <input type="number" id="sfCelibataire" name="sfCelibataire" [(ngModel)]="critere.sfCelibataire">
+
+    <label for="sfMarie">Marie</label>
+    <input type="number" id="sfMarie"  name="sfMarie" [(ngModel)]="critere.sfMarie">
+
+    <label for="sfVeuf">Veuf</label>
+    <input type="number" id="sfVeuf" name="sfVeuf" [(ngModel)]="critere.sfVeuf">
+
+    <label for="sfDivorce">Divorce</label>
+    <input type="number" id="sfDivorce" name="sfDivorce" [(ngModel)]="critere.sfDivorce">
+    <!-- END Situation Familliale -->
+
+    <!-- START Logement -->
+
+    <h3 id="logementHeader">Partie Logement </h3>
+
+    <label for="logementLouer">Louer</label>
+    <input type="number" id="logementLouer" name="logementLouer" [(ngModel)]="critere.logementLouer">
+
+    <label for="logementAnnexeMosque">AnnexeMosque</label>
+    <input type="number" id="logementAnnexeMosque" name="logementAnnexeMosque" [(ngModel)]="critere.logementAnnexeMosque">
+
+    <label for="logementFamille">Famille</label>
+    <input type="number" id="logementFamille" name="logementFamille" [(ngModel)]="critere.logementFamille">
+    <!-- END Logement -->
+
+    <!-- START Fonction -->
+
+    <h3 id="fonctionHeader">Partie Fonction </h3>
+
+    <label for="fonctionImame">Imame</label>
+    <input type="number" id="fonctionImame"  name="fonctionImame"[(ngModel)]="critere.fonctionImame">
+
+    <label for="fonctionKhatib">Khatib</label>
+    <input type="number" id="fonctionKhatib" name="fonctionKhatib"  [(ngModel)]="critere.fonctionKhatib">
+
+    <label for="fonctionMoadin">Moadin</label>
+    <input type="number" id="fonctionMoadin" name="fonctionMoadin" [(ngModel)]="critere.fonctionMoadin">
+
+    <label for="fonctionObservateur">Observateur</label>
+    <input type="number" id="fonctionObservateur" name="fonctionObservateur" [(ngModel)]="critere.fonctionObservateur">
+
+    <label for="guideEncadrentPrecheur">Guide,Encadrent et Precheur</label>
+    <input type="number" id="guideEncadrentPrecheur" name="guideEncadrentPrecheur" [(ngModel)]="critere.guideEncadrentPrecheur">
+
+    <label for="fonctionGardien">Gardien</label>
+    <input type="number" id="fonctionGardien"  name="fonctionGardien" [(ngModel)]="critere.fonctionGardien">
+
+    <label for="fonctionMenage">Menage</label>
+    <input type="number" id="fonctionMenage"  name="fonctionMenage" [(ngModel)]="critere.fonctionMenage">
+    <!-- END Fonction  -->
+    <label id="messageResultat"></label>
+    <button (click)="updateCritere(critere)" class="btn btn-primary updateCritre">Modifier</button>
+
+  </form>
+</div>
