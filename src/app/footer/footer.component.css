@@ -1,18 +1,23 @@
+body {
+  position: relative;
+}
+
 .arabic__palette{
   position: absolute;
   left: -0.28%;
   right: -1.28%;
   top: 49.8%;
   bottom: -0.98%;
-  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(175.98deg, #FFFFFF 4.63%, rgba(255, 255, 255, 0) 96.72%);
 }
+
 svg{
   position: absolute;
   width: 100%;
-  transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
 .background__svg {
-  position: absolute;
-  background: linear-gradient(175.98deg, #FFFFFF 4.63%, rgba(255, 255, 255, 0) 96.72%);
+
+
 }

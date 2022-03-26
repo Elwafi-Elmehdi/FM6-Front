@@ -14,7 +14,6 @@ export class CritereComponent implements OnInit {
 
   private _critere:Critere = new Critere();
 
-
   get critere(): Critere{
     return this._critere;
   }
