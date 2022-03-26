@@ -1,1 +1,92 @@
-<p>demande-create works!</p>
+<div class="forma">
+
+  <form>
+    <div>
+    <div>
+      <label for="nom">Nom</label>
+      <input type="text" name="nom" id="nom" [(ngModel)]="demande.nom" required>
+    </div>
+    <div>
+      <label for="prenom">Prénom</label>
+      <input type="text" name="prenom" id="prenom" [(ngModel)]="demande.prenom" required>
+    </div>
+    <div>
+      <label for="naissance">Date de naissance</label>
+      <input type="date" name="naissance" id="naissance" min="1900-01-01" max="2004-01-01" [(ngModel)]="demande.naissance" required>
+    </div>
+    <div>
+      <label for="cin">CIN</label>
+      <input type="text" name="cin" id="cin" [(ngModel)]="demande.cin" required>
+    </div>
+    <div>
+      <label for="adherentCode">Adhérent code</label>
+      <input type="text" name="adherentCode" id="adherentCode" [(ngModel)]="demande.adherentCode">
+    </div>
+    <div>
+      <label for="telephone">Téléphone</label>
+      <input type="text" name="telephone" id="telephone" [(ngModel)]="demande.telephone" required>
+    </div>
+    <div>
+      <label for="adresseActualle">Adresse actuelle</label>
+      <input type="text" name="adresseActualle" id="adresseActualle" required [(ngModel)]="demande.adresseActualle">
+    </div>
+      </div>
+    <div>
+    <div>
+      <label for="mosqueRef">Référence de mosquée</label>
+      <input type="text" name="mosqueRef" id="mosqueRef" required [(ngModel)]="demande.mosqueRef">
+    </div>
+    <div>
+      <label for="dateJoindreMosque">Date rejoint de la mosquée</label>
+      <input type="date" name="dateJoindreMosque" id="dateJoindreMosque" min="1942-01-01" max="2022-03-26" [(ngModel)]="demande.dateJoindreMosque" required>
+    </div>
+    <div>
+      <label for="environment">Environment</label>
+      <select name="environment" required id="environment" [(ngModel)]="demande.environment">
+        <option value="0">Civil</option>
+        <option value="1">Rural</option>
+      </select>
+    </div>
+    <div>
+      <label for="sf">Situation Familiale</label>
+      <select name="sf" id="sf" [(ngModel)]="demande.sf" required>
+        <option value="0">Célibataire</option>
+        <option value="1">Veuf</option>
+        <option value="2">Marié</option>
+        <option value="3">Divorcé</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="fonction">Fonction</label>
+      <select  name="fonction" id="fonction" [(ngModel)]="demande.fonction" required >
+        <option value="0">Imane</option>
+        <option value="1">Khatib</option>
+        <option value="2">Moadin</option>
+        <option value="3">Gardien</option>
+        <option value="4">Menage</option>
+        <option value="4">Precheur</option>
+      </select>
+    </div>
+    <div>
+      <label for="logement">Logement</label>
+      <select name="logement" id="logement" required [(ngModel)]="demande.logement">
+        <option value="0">Louer</option>
+        <option value="1">Famille</option>
+        <option value="2">Annexe Mosque</option>
+      </select>
+    </div>
+    <div>
+      <label for="conditionPhysique">Condition Physique</label>
+      <select name="" id="conditionPhysique" required [(ngModel)]="demande.conditionPhysique">
+        <option value="0">Capable</option>
+        <option value="1">Incapable</option>
+      </select>
+    </div>
+    </div>
+  </form>
+  <div>
+    <button (click)="addDemande(demande)">Déposer une demande</button>
+  </div>
+</div>
+<app-footer></app-footer>
