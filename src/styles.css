@@ -6,7 +6,11 @@
   box-sizing: border-box;
   font-family: Arial,'Poppins';
 }
-
+.form-control:focus .btn:focus .btn:active{
+  border-color: #cccccc;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 .btn__fm6 {
   background-color: #EC8C24;
   font-family: 'Poppins';

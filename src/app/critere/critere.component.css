@@ -1,0 +1,65 @@
+.criterefields {
+  width: 1300px;
+  padding: 10px 10%;
+  z-index: 1;
+  position: absolute;
+  display: inline-block;
+  top: 10%;
+  left: 15%;
+  background-color: #FFFFFF;
+  box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 27px;
+}
+.forma{
+  display: flex;
+  flex-wrap: wrap;
+}
+.forma > div{
+  flex: 1 1 auto;
+  margin: 0 20px;
+  width: 30%;
+}
+
+label, input {
+  display: block;
+  line-height: 24px;
+}
+button {
+  height: 40px;
+  margin: 100px 0 10px 0 ;
+  float: right;
+  width: 40%;
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 22px;
+  border: 1px solid #EC8C24;
+  text-align: center;
+  display: block;
+}
+label {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 30px;
+}
+input{
+  border: 1px solid #EC8C24;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 22px;
+  background: #f1f1f1;
+  height: 30px;
+}
+h3 {
+  margin-top: 10px;
+  font-size: 30px;
+  color: rgba(49,49,49,0.96);
+}
+
+

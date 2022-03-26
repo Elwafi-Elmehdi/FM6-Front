@@ -2,6 +2,14 @@
   box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
   border-radius: 27px;
   padding: 100px;
+  z-index: 1;
+  position: absolute;
+  top: 23%;
+  left: 25%;
+  width: 100vw;
+}
+.card-body {
+  position: relative;
 }
 
 
@@ -22,8 +30,9 @@
   height: 62px;
 }
 #logo__fm6 {
-  width: 398px;
-  height: 72px;
+  width: 360px;
+  left: 25%;
+  margin: 0 auto;
 }
 
 .login__btn {
