@@ -11,6 +11,7 @@ import { LoginComponent } from './user/login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { DemandeCreateComponent } from './demande/demande-create/demande-create.component';
 import { DemandeListComponent } from './demande/demande-list/demande-list.component';
+import { DemandeCardComponent } from './demande/demande-card/demande-card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DemandeListComponent } from './demande/demande-list/demande-list.compon
     LoginComponent,
     FooterComponent,
     DemandeCreateComponent,
-    DemandeListComponent
+    DemandeListComponent,
+    DemandeCardComponent
   ],
     imports: [
         BrowserModule,
