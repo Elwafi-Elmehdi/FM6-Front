@@ -1,5 +1,6 @@
 <div class="forma">
-
+  <h1>Nouvelle Demande</h1>
+  <hr>
   <form>
     <div>
     <div>
@@ -12,7 +13,7 @@
     </div>
     <div>
       <label for="naissance">Date de naissance</label>
-      <input type="date" name="naissance" id="naissance" min="1900-01-01" max="2004-01-01" [(ngModel)]="demande.naissance" required>
+      <input style="width:45%; height: 30px;" type="date" name="naissance" id="naissance" min="1900-01-01" max="2004-01-01" [(ngModel)]="demande.naissance" required>
     </div>
     <div>
       <label for="cin">CIN</label>
@@ -36,9 +37,13 @@
       <label for="mosqueRef">Référence de mosquée</label>
       <input type="text" name="mosqueRef" id="mosqueRef" required [(ngModel)]="demande.mosqueRef">
     </div>
+      <div>
+        <label for="mosque">Adresse de mosquée</label>
+        <input type="text" name="mosque" id="mosque" required [(ngModel)]="demande.mosque">
+      </div>
     <div>
       <label for="dateJoindreMosque">Date rejoint de la mosquée</label>
-      <input type="date" name="dateJoindreMosque" id="dateJoindreMosque" min="1942-01-01" max="2022-03-26" [(ngModel)]="demande.dateJoindreMosque" required>
+      <input style="width:43%; height: 30px;"  type="date" name="dateJoindreMosque" id="dateJoindreMosque" min="1942-01-01" max="2022-03-26" [(ngModel)]="demande.dateJoindreMosque" required>
     </div>
     <div>
       <label for="environment">Environment</label>
@@ -60,7 +65,7 @@
     <div>
       <label for="fonction">Fonction</label>
       <select  name="fonction" id="fonction" [(ngModel)]="demande.fonction" required >
-        <option value="0">Imane</option>
+        <option value="0">Imame</option>
         <option value="1">Khatib</option>
         <option value="2">Moadin</option>
         <option value="3">Gardien</option>
@@ -76,17 +81,20 @@
         <option value="2">Annexe Mosque</option>
       </select>
     </div>
+
     <div>
       <label for="conditionPhysique">Condition Physique</label>
-      <select name="" id="conditionPhysique" required [(ngModel)]="demande.conditionPhysique">
+      <select name="conditionPhysique" id="conditionPhysique" required [(ngModel)]="demande.conditionPhysique">
         <option value="0">Capable</option>
         <option value="1">Incapable</option>
       </select>
+
     </div>
+      <div>
+        <button (click)="addDemande(demande)">Déposer une demande</button>
+      </div>
     </div>
   </form>
-  <div>
-    <button (click)="addDemande(demande)">Déposer une demande</button>
-  </div>
+
 </div>
 <app-footer></app-footer>

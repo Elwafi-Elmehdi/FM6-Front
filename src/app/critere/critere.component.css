@@ -45,7 +45,7 @@ label {
   font-size: 15px;
   line-height: 30px;
 }
-input{
+input,select{
   border: 1px solid #EC8C24;
   box-sizing: border-box;
   border-radius: 5px;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Demande} from "../../controller/models/demande";
+import {DemandeService} from "../../controller/services/demande.service";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-demande-create',
@@ -8,7 +10,7 @@ import {Demande} from "../../controller/models/demande";
 })
 export class DemandeCreateComponent implements OnInit {
   private _demande = new Demande();
-  constructor() { }
+  constructor(private service:DemandeService,private router:Router) { }
 
   get demande(): Demande {
     return this._demande;
@@ -22,6 +24,11 @@ export class DemandeCreateComponent implements OnInit {
   }
 
   addDemande(demande: Demande) {
+    console.log(demande)
+    this.service.addDemande(demande).subscribe(res => {
+      console.log(res);
 
+      this.router.navigate(['']);
+    })
   }
 }
