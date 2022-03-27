@@ -1,14 +1,24 @@
+body {
+  position: relative;
+}
+
 main {
   width: 80%;
   height: 90%;
   background-color: aqua;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
+  z-index: 2;
 }
 .filters {
   background-color: pink;
   height: 100%;
   flex:1;
 }
+
 .demandes {
   flex: 3;
   background-color: blue;

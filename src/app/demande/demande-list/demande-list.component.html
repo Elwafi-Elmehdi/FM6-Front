@@ -16,7 +16,9 @@
     </div>
   </aside>
   <section class="demandes">
-
+    <div *ngFor="let demande of demandes">
+      <app-demande-card [demande]="demande"></app-demande-card>
+    </div>
   </section>
 </main>
 

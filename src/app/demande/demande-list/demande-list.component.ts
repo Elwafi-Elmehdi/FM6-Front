@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DemandeService} from "../../controller/services/demande.service";
+import {Demande} from "../../controller/models/demande";
 
 @Component({
   selector: 'app-demande-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemandeListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:DemandeService) { }
+  public demandes:Array<Demande> = new Array<Demande>();
 
   ngOnInit(): void {
+    this.service.getDemandes().subscribe(res => {
+      this.demandes = res;
+      console.log(res)
+    })
   }
 
 }

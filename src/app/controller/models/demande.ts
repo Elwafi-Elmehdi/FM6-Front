@@ -15,4 +15,5 @@ export class Demande {
   fonction:number|undefined;
   logement:number|undefined;
   conditionPhysique:number|undefined;
+  createdAt:string|undefined;
 }
