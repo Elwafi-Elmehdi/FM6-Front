@@ -1,6 +1,10 @@
 export class Demande {
   id:number|undefined;
+  reference:string|undefined;
+  score:number|undefined;
+  age:number|undefined;
   nom:string| undefined;
+  anciennete:number|undefined;
   prenom:string|undefined;
   cin:string|undefined;
   naissance:string|undefined;

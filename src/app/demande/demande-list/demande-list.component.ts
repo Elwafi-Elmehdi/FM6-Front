@@ -11,7 +11,13 @@ export class DemandeListComponent implements OnInit {
 
   constructor(private service:DemandeService) { }
   public demandes:Array<Demande> = new Array<Demande>();
-
+  public filterObj = {
+    age: 0,
+    cin:"",
+    codeAdherent:"",
+    telephone:"",
+    anciennete:0
+  }
   ngOnInit(): void {
     this.service.getDemandes().subscribe(res => {
       this.demandes = res;
@@ -19,4 +25,11 @@ export class DemandeListComponent implements OnInit {
     })
   }
 
+  recherche() {
+
+  }
+
+  navigateDemande() {
+
+  }
 }

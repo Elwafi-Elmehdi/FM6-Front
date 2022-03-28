@@ -5,23 +5,50 @@ body {
 main {
   width: 80%;
   height: 90%;
-  background-color: aqua;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   z-index: 2;
+  background-color: #FFFFFF;
+  box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 27px;
 }
-.filters {
+main > * {
+  margin: 0 10px;
+}
+aside.filters {
   background-color: pink;
   height: 100%;
   flex:1;
+  background-color: #FFFFFF;
+  box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 27px;
+}
+label, input{
+  display: block;
+  line-height: 24px;
 }
 
 .demandes {
   flex: 3;
-  background-color: blue;
   height: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 27px;
+  padding: 20px;
+}
+.search-criteria{
+  margin: 10px 10%;
+}
+div.filters {
+  margin: 10px 10%;
+}
+.table-controlls{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 

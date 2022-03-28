@@ -2,23 +2,66 @@
   <aside class="filters">
     <div class="search-criteria">
       <h4>Recherche</h4>
+      <hr>
       <label for="cin">CIN</label>
-      <input type="text" id="cin" name="cin" >
-
+      <input type="text" id="cin" name="cin" [(ngModel)]="filterObj.cin">
       <label for="codeAdherent">Code Adhérent</label>
-      <input type="text" id="codeAdherent" name="codeAdherent" >
-
+      <input type="text" id="codeAdherent" name="codeAdherent" [(ngModel)]="filterObj.codeAdherent" >
       <label for="telephone">Téléphone</label>
-      <input type="text" id="telephone" name="telephone">
+      <input type="text" id="telephone" name="telephone" [(ngModel)]="filterObj.telephone">
+      <button (click)="recherche()">recherche</button>
     </div>
     <div class="filters">
       <h4>Filteres</h4>
+      <hr>
+      <label for="age">
+        Age
+      </label>
+      <input type="range"   min="18" max="130" name="age" id="age" [(ngModel)]="filterObj.age">
+      <i>{{filterObj.age}}</i>
+      <label for="anciennete">
+        Ancienneté
+      </label>
+      <input type="range"   min="1" max="60" name="age" id="anciennete" [(ngModel)]="filterObj.anciennete">
+      <i>{{filterObj.anciennete}}</i>
     </div>
   </aside>
   <section class="demandes">
-    <div *ngFor="let demande of demandes">
-      <app-demande-card [demande]="demande"></app-demande-card>
-    </div>
+    <h2>Liste des demandes</h2>
+<!--    <hr>-->
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+      <th scope="col">id</th>
+      <th scope="col">référence</th>
+      <th scope="col">score</th>
+      <th scope="col">cin</th>
+      <th scope="col">code adhérent</th>
+      <th scope="col">prénom</th>
+      <th scope="col">nom</th>
+      <th scope="col">age</th>
+      <th scope="col">ancienneté</th>
+      <th scope="col">téléphone</th>
+      </thead>
+      <tbody>
+      <tr (click)="navigateDemande()" *ngFor="let demande of demandes;index as i">
+        <td>{{i}}</td>
+        <td>{{demande.reference}}</td>
+        <td>{{demande.score}}</td>
+        <td>{{demande.cin}}</td>
+        <td>{{demande.adherentCode}}</td>
+        <td>{{demande.prenom}}</td>
+        <td>{{demande.nom}}</td>
+        <td>{{demande.age}}</td>
+        <td>{{demande.anciennete}}</td>
+        <td>{{demande.telephone}}</td>
+      </tr>
+      </tbody>
+    </table>
+<!--    <div class="table-controlls">-->
+<!--    <button><</button>-->
+<!--    <button>></button>-->
+<!--    <label >{{demandes.length}} of {{demandes.length}}</label>-->
+<!--    </div>-->
   </section>
 </main>
 
