@@ -37,7 +37,7 @@ export class AuthenticationService {
         const {token,user} = data
         this.saveToken(token)
         this.saveUserAndUsername(user)
-        this.router.navigate(['task/list'])
+        this.router.navigate(['/demandes'])
       }
     })
   }
@@ -60,6 +60,8 @@ export class AuthenticationService {
       if(this.jwtHelper.decodeToken(this.token) != null || ''){
         if(!this.jwtHelper.isTokenExpired(this.token)){
           this.storedUsername = this.jwtHelper.decodeToken(this.token)._id;
+          this.user.role = this.jwtHelper.decodeToken(this.token).role;
+          this.saveUserAndUsername(this.user);
           return true
         }
       }
@@ -73,7 +75,7 @@ export class AuthenticationService {
   private saveUserAndUsername(user:any){
     this.storedUsername = user.username
     this.user = user
-    this.storageService.set(environment.usernameLabel,user._id)
+    this.storageService.set(environment.usernameLabel,user.username)
     this.storageService.set(environment.userLabel, JSON.stringify(user))
   }
 
