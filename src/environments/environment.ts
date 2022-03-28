@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  urlBase : "http://localhost:8036"
+  urlBase : "http://localhost:8036",
+  tokenLabel:"TOKEN",
+  userLabel:"USER",
+  usernameLabel:"USERNAME"
 };
 
 /*
