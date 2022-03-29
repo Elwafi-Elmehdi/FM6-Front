@@ -1,6 +1,7 @@
 
 body{
   position: relative;
+  width: 100%;
 }
 
 .arabic__palette{
@@ -11,10 +12,9 @@ body{
 
 svg{
   position: fixed;
-  width: 100%;
-  top: 49.8%;
+  width: 100vw;
+  top: 50%;
 }
 
 .background__svg {
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Demande} from "../../controller/models/demande";
 import {DemandeService} from "../../controller/services/demande.service";
-import {Route, Router} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-demande-create',
@@ -10,7 +10,8 @@ import {Route, Router} from "@angular/router";
 })
 export class DemandeCreateComponent implements OnInit {
   private _demande = new Demande();
-  constructor(private service:DemandeService,private router:Router) { }
+  constructor(private service:DemandeService,private router:Router,private route:ActivatedRoute) { }
+  public mode = 'CREATE'
 
   get demande(): Demande {
     return this._demande;
@@ -21,14 +22,35 @@ export class DemandeCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.service.demande != null){
+      this.demande = this.service.demande
+      this.mode = 'UPDATE'
+    }else {
+      this.mode = "CREATE"
+    }
+    console.log(this.mode)
   }
 
   addDemande(demande: Demande) {
-    console.log(demande)
     this.service.addDemande(demande).subscribe(res => {
       console.log(res);
-
-      this.router.navigate(['']);
+      this.router.navigate(['demandes']);
     })
+  }
+  deleteDemande(demande:Demande) {
+    this.service.deleteDemande(demande).subscribe(res => {
+      console.log(res)
+      if(res instanceof Demande) {
+        this.router.navigate(['demandes'])
+
+      }
+    })
+  }
+
+  retour() {
+    this.demande = new Demande();
+    this.service.demande = new Demande();
+    this.mode = "CREATE";
+    this.router.navigateByUrl("/demandes")
   }
 }

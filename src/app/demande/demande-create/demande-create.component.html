@@ -1,5 +1,8 @@
 <div class="forma">
-  <h1>Nouvelle Demande</h1>
+  <div class="demande_creer_header">
+    <h1>Nouvelle Demande</h1>
+    <button id="retour" (click)="retour()" >Retour</button>
+  </div>
   <hr>
   <form>
     <div>
@@ -13,7 +16,7 @@
     </div>
     <div>
       <label for="naissance">Date de naissance</label>
-      <input style="width:45%; height: 30px;" type="date" name="naissance" id="naissance" min="1900-01-01" max="2004-01-01" [(ngModel)]="demande.naissance" required>
+      <input style="width:45%; height: 30px;" type="date" name="naissance"  [defaultValue]="demande.naissance" id="naissance" min="1900-01-01" max="2004-01-01" [(ngModel)]="demande.naissance" required>
     </div>
     <div>
       <label for="cin">CIN</label>
@@ -31,30 +34,33 @@
       <label for="adresseActualle">Adresse actuelle</label>
       <input type="text" name="adresseActualle" id="adresseActualle" required [(ngModel)]="demande.adresseActualle">
     </div>
+      <div>
+        <label for="mosqueRef">Référence de mosquée</label>
+        <input type="text" name="mosqueRef" id="mosqueRef" required [(ngModel)]="demande.mosqueRef">
+      </div>
       </div>
     <div>
-    <div>
-      <label for="mosqueRef">Référence de mosquée</label>
-      <input type="text" name="mosqueRef" id="mosqueRef" required [(ngModel)]="demande.mosqueRef">
-    </div>
+
       <div>
         <label for="mosque">Adresse de mosquée</label>
         <input type="text" name="mosque" id="mosque" required [(ngModel)]="demande.mosque">
       </div>
     <div>
       <label for="dateJoindreMosque">Date rejoint de la mosquée</label>
-      <input style="width:43%; height: 30px;"  type="date" name="dateJoindreMosque" id="dateJoindreMosque" min="1942-01-01" max="2022-03-26" [(ngModel)]="demande.dateJoindreMosque" required>
+      <input style="width:43%; height: 30px;" [defaultValue]="demande.dateJoindreMosque" type="date" name="dateJoindreMosque" id="dateJoindreMosque" min="1942-01-01" max="2022-03-26" [(ngModel)]="demande.dateJoindreMosque" required>
     </div>
     <div>
       <label for="environment">Environment</label>
       <select name="environment" required id="environment" [(ngModel)]="demande.environment">
+        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.environment}}</option>
         <option value="0">Civil</option>
         <option value="1">Rural</option>
       </select>
     </div>
     <div>
       <label for="sf">Situation Familiale</label>
-      <select name="sf" id="sf" [(ngModel)]="demande.sf" required>
+      <select name="sf" id="sf" [value]="demande.sf" [(ngModel)]="demande.sf" required>
+        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.sf}}</option>
         <option value="0">Célibataire</option>
         <option value="1">Veuf</option>
         <option value="2">Marié</option>
@@ -64,7 +70,8 @@
 
     <div>
       <label for="fonction">Fonction</label>
-      <select  name="fonction" id="fonction" [(ngModel)]="demande.fonction" required >
+      <select  name="fonction" id="fonction" [value]="demande.fonction" [(ngModel)]="demande.fonction" required >
+        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.fonction}}</option>
         <option value="0">Imame</option>
         <option value="1">Khatib</option>
         <option value="2">Moadin</option>
@@ -75,7 +82,8 @@
     </div>
     <div>
       <label for="logement">Logement</label>
-      <select name="logement" id="logement" required [(ngModel)]="demande.logement">
+      <select name="logement" id="logement" [value]="demande.logement" required [(ngModel)]="demande.logement">
+        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.logement}}</option>
         <option value="0">Louer</option>
         <option value="1">Famille</option>
         <option value="2">Annexe Mosque</option>
@@ -84,14 +92,15 @@
 
     <div>
       <label for="conditionPhysique">Condition Physique</label>
-      <select name="conditionPhysique" id="conditionPhysique" required [(ngModel)]="demande.conditionPhysique">
+      <select name="conditionPhysique" id="conditionPhysique" [value]="demande.conditionPhysique" required [(ngModel)]="demande.conditionPhysique">
+        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.conditionPhysique}}</option>
         <option value="0">Capable</option>
         <option value="1">Incapable</option>
       </select>
-
     </div>
-      <div>
-        <button (click)="addDemande(demande)">Déposer une demande</button>
+      <div class="action_btns">
+        <button id="update" (click)="addDemande(demande)">{{mode == "CREATED" ? "Déposer une demande" : "Modifier la demande"}}</button>
+        <button id="delete" (click)="deleteDemande(demande)" [hidden]="mode.includes('UPDATE') ? false : true" >Suprimmer la demande</button>
       </div>
     </div>
   </form>

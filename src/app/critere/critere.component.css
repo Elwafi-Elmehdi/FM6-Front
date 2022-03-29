@@ -3,28 +3,40 @@
   padding: 10px 10%;
   z-index: 1;
   position: absolute;
-  display: inline-block;
+  display: flex;
   top: 10%;
   left: 15%;
   background-color: #FFFFFF;
   box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
   border-radius: 27px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .forma{
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
 }
-.forma > div{
-  flex: 1 1 auto;
-  margin: 0 20px;
-  width: 30%;
+.forma > div {
+  flex: 1;
+}
+.divForm {
+  width: 100%;
+}
+
+.critere_header {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 label, input {
   display: block;
   line-height: 24px;
 }
-button {
+button.btn__fm6 {
   height: 40px;
   margin: 100px 0 10px 0 ;
   float: right;
@@ -42,7 +54,7 @@ button {
 label {
   font-style: normal;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 30px;
 }
 input,select{
@@ -61,5 +73,16 @@ h3 {
   font-size: 30px;
   color: rgba(49,49,49,0.96);
 }
-
+.btn_header {
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 22px;
+  background-color: #9F2424;
+  width: 20%;
+  height: 40px;
+  text-align: center;
+}
 

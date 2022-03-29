@@ -11,12 +11,13 @@ main {
   transform: translate(-50%, -50%);
   display: flex;
   z-index: 2;
-  background-color: #FFFFFF;
-  box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
   border-radius: 27px;
+  padding: 10px;
 }
 main > * {
   margin: 0 10px;
+  box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
+
 }
 aside.filters {
   background-color: pink;
@@ -41,9 +42,15 @@ label, input{
 }
 .search-criteria{
   margin: 10px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 div.filters {
   margin: 10px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .table-controlls{
   position: absolute;
@@ -51,4 +58,69 @@ div.filters {
   left: 50%;
   transform: translate(-50%,-50%);
 }
-
+.demande__list_header {
+  display: flex;
+  justify-content: space-between;
+}
+#recherche, #delete {
+  margin: 25px 5px;
+}
+h4 {
+  text-align: center;
+}
+aside > *{
+  margin-top: 40px;
+}
+.nav_btns > button {
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 10px;
+  background-color: #9F2424;
+  height: 40px;
+  border: none;
+  margin: 0 10px;
+  padding: 15px;
+  text-align: center;
+}
+table {
+  margin-top: 20px;
+}
+.filterbutton {
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 10px;
+  background-color: #EC8C24;
+  height: 40px;
+  border: none;
+  margin: 0 10px;
+  padding: 15px;
+  text-align: center;
+}
+input,select{
+  border: 1px solid #EC8C24;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 22px;
+  background: #f1f1f1;
+  height: 30px;
+}
+h4 {
+  margin-top: 10px;
+  font-size: 30px;
+  color: rgba(49,49,49,0.96);
+}
+label {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}

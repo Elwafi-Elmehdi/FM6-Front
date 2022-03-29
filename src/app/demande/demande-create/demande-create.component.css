@@ -57,6 +57,7 @@ button {
 
 form {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 form > * {
@@ -71,5 +72,30 @@ h1 {
   font-size: 30px;
   color: rgba(49,49,49,0.96);
 }
+.demande_creer_header {
+  display: flex;
+  justify-content: space-between;
+}
+.action_btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+#delete {
+  background-color: rgba(193,7,0,0.96);
+  border: none;
+  width:50%;
 
+}
+#retour {
+  background-color: #9F2424;
+  border: none;
+  width:20%;
+
+}
+#update {
+  background-color: rgba(17,159,0,0.96);
+  border: none;
+  width:50%;
+}
 

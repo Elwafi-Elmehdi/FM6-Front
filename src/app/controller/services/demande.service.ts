@@ -9,16 +9,34 @@ import {Demande} from "../models/demande";
 })
 export class DemandeService {
   private url = environment.urlBase+'/demandes/';
+  private _demande: Demande | null | undefined;
+
+
+  get demande(): Demande | null | undefined {
+    return this._demande;
+  }
+
+  set demande(value: Demande | null | undefined) {
+    this._demande = value;
+  }
+
   constructor(private httpClient:HttpClient) { }
 
   getDemandes() {
     return this.httpClient.get<Array<Demande>>(this.url);
   }
+
   getDemandeByCIN(cin:string) {
     return this.httpClient.get<Array<Demande>>(this.url+'cin/'+cin);
   }
   addDemande(demande:Demande) {
     return this.httpClient.post(this.url,demande);
+  }
+  deleteDemande(demande:Demande) {
+    return this.httpClient.delete(this.url,{body:demande});
+  }
+  searchDemandeByCriteria(obj:any){
+    return this.httpClient.post<Array<Demande>>(this.url+'criteres/',obj);
   }
 
 }

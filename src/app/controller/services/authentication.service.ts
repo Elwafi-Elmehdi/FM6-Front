@@ -20,7 +20,7 @@ export class AuthenticationService {
   private _token :string|null = ''
   private _storedUsername = ''
 
-  public saveToken(token:string){
+  public saveToken(token: string | null){
     this._token = token;
     this.storageService.set(environment.tokenLabel,token);
   }
@@ -32,9 +32,10 @@ export class AuthenticationService {
     return JSON.parse(<string>this.storageService.get(environment.userLabel));
   }
   public login(user:User){
-    this.httpCLient.post<any>(this.url+'/login',user).subscribe(data => {
-      if(data.token && data.user){
-        const {token,user} = data
+    this.httpCLient.post<any>(this.url+'/login/',user,{observe:'response'}).subscribe(data => {
+      if(data.headers.get("Jwt-Token") && data.body.user){
+        let token = data.headers.get("Jwt-Token");
+        let user = data.body
         this.saveToken(token)
         this.saveUserAndUsername(user)
         this.router.navigate(['/demandes'])
@@ -43,7 +44,7 @@ export class AuthenticationService {
   }
 
   public logout(){
-    this.httpCLient.post(this.url+'/logout', {}).subscribe(data => {
+    this.httpCLient.post(this.url+'/logout/', {}).subscribe(data => {
       console.log(data)
     })
     this._token = ''
@@ -51,7 +52,7 @@ export class AuthenticationService {
     this.storageService.remove(environment.tokenLabel)
     this.storageService.remove(environment.userLabel)
     this.storageService.remove(environment.usernameLabel)
-    this.router.navigate(['/login'])
+    this.router.navigate([''])
   }
 
   public isLoggedIn(): boolean {

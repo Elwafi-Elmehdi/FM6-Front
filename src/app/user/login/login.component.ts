@@ -10,12 +10,13 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService:AuthenticationService,private router:Router) { }
+  constructor(public authService:AuthenticationService,private router:Router) { }
   private _user = new User();
+  public error = true;
   ngOnInit(): void {
-    if (this.authService.isLoggedIn()){
-      this.router.navigate(['/demandes'])
-    }
+    // if (this.authService.isLoggedIn()){
+    //   this.router.navigate(['/demandes'])
+    // }
   }
   login(user:User) {
     this.authService.login(user);

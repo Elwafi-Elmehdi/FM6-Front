@@ -3,7 +3,8 @@
     <img id="logo__fm6"  src="/assets/logo-fm6.png" alt="logo-fondation-fm-6">
     <input class="form-control login__input" type="text" placeholder="Nom d'utilisateur" name="username" [(ngModel)]="user.username">
     <input class="form-control login__input " type="password" placeholder="Mot de pass" name="password" [(ngModel)]="user.password">
-    <button class="btn__fm6  login__btn">Se connecter</button>
+    <div><label class="errorMessage" [hidden]="error">Nom d'utilisateur/Mot de passe est faux</label></div>
+    <button class="btn__fm6  login__btn" (click)="login(user)">Se connecter</button>
   </div>
 </div>
 <app-footer></app-footer>
