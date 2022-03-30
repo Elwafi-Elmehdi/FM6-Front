@@ -33,6 +33,9 @@ export class AuthenticationService {
   }
   public login(user:User){
     this.httpCLient.post<any>(this.url+'/login/',user,{observe:'response'}).subscribe(data => {
+      console.log(data.headers.get("Jwt-Token"));
+      console.log(data.headers);
+      console.log(data.body)
       if(data.headers.get("Jwt-Token") && data.body.user){
         let token = data.headers.get("Jwt-Token");
         let user = data.body

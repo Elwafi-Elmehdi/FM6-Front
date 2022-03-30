@@ -7,13 +7,13 @@ body{
 .arabic__palette{
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(175.98deg, #FFFFFF 4.63%, rgba(255, 255, 255, 0) 96.72%);
 }
 
 svg{
   position: fixed;
   width: 100vw;
   top: 50%;
+  background: linear-gradient(175.98deg, #FFFFFF 4.63%, rgba(255, 255, 255, 0) 96.72%);
 }
 
 .background__svg {

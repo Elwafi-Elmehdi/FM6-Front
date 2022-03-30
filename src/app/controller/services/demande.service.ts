@@ -9,14 +9,23 @@ import {Demande} from "../models/demande";
 })
 export class DemandeService {
   private url = environment.urlBase+'/demandes/';
-  private _demande: Demande | null | undefined;
+  private _demande: Demande | undefined;
+  private _mode : String = "CREATE";
 
 
-  get demande(): Demande | null | undefined {
+  get mode(): String {
+    return this._mode;
+  }
+
+  set mode(value: String) {
+    this._mode = value;
+  }
+
+  get demande(): Demande |undefined {
     return this._demande;
   }
 
-  set demande(value: Demande | null | undefined) {
+  set demande(value: Demande  | undefined) {
     this._demande = value;
   }
 

@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="forma">
   <div class="demande_creer_header">
     <h1>Nouvelle Demande</h1>
@@ -52,7 +53,7 @@
     <div>
       <label for="environment">Environment</label>
       <select name="environment" required id="environment" [(ngModel)]="demande.environment">
-        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.environment}}</option>
+        <option selected disabled [hidden]="mode ==='UPDATE'? false : true">{{demande.environment}}</option>
         <option value="0">Civil</option>
         <option value="1">Rural</option>
       </select>
@@ -60,7 +61,7 @@
     <div>
       <label for="sf">Situation Familiale</label>
       <select name="sf" id="sf" [value]="demande.sf" [(ngModel)]="demande.sf" required>
-        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.sf}}</option>
+        <option selected disabled [hidden]="mode ==='UPDATE'? false : true">{{demande.sf}}</option>
         <option value="0">Célibataire</option>
         <option value="1">Veuf</option>
         <option value="2">Marié</option>
@@ -71,7 +72,7 @@
     <div>
       <label for="fonction">Fonction</label>
       <select  name="fonction" id="fonction" [value]="demande.fonction" [(ngModel)]="demande.fonction" required >
-        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.fonction}}</option>
+        <option selected disabled [hidden]="mode==='UPDATE'? false : true">{{demande.fonction}}</option>
         <option value="0">Imame</option>
         <option value="1">Khatib</option>
         <option value="2">Moadin</option>
@@ -83,7 +84,7 @@
     <div>
       <label for="logement">Logement</label>
       <select name="logement" id="logement" [value]="demande.logement" required [(ngModel)]="demande.logement">
-        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.logement}}</option>
+        <option selected disabled [hidden]=" mode==='UPDATE' ? false : true">{{demande.logement}}</option>
         <option value="0">Louer</option>
         <option value="1">Famille</option>
         <option value="2">Annexe Mosque</option>
@@ -93,14 +94,14 @@
     <div>
       <label for="conditionPhysique">Condition Physique</label>
       <select name="conditionPhysique" id="conditionPhysique" [value]="demande.conditionPhysique" required [(ngModel)]="demande.conditionPhysique">
-        <option selected disabled [hidden]="mode=='UPDATE'? false : true">{{demande.conditionPhysique}}</option>
+        <option selected disabled [hidden]="mode==='UPDATE'? false : true">{{demande.conditionPhysique}}</option>
         <option value="0">Capable</option>
         <option value="1">Incapable</option>
       </select>
     </div>
       <div class="action_btns">
-        <button id="update" (click)="addDemande(demande)">{{mode == "CREATED" ? "Déposer une demande" : "Modifier la demande"}}</button>
-        <button id="delete" (click)="deleteDemande(demande)" [hidden]="mode.includes('UPDATE') ? false : true" >Suprimmer la demande</button>
+        <button id="update" (click)="addDemande(demande)">{{mode === "CREATE" ? "Déposer une demande" : "Modifier la demande"}}</button>
+        <button id="delete" (click)="deleteDemande(demande)" [hidden]="mode ==='UPDATE' ? false : true" >Suprimmer la demande</button>
       </div>
     </div>
   </form>

@@ -7,7 +7,7 @@ main {
   height: 90%;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 59%;
   transform: translate(-50%, -50%);
   display: flex;
   z-index: 2;
@@ -123,4 +123,7 @@ label {
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
+}
+.recherche_btn {
+  margin-top: 10px;
 }

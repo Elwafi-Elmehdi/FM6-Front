@@ -11,7 +11,10 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 export class DemandeCreateComponent implements OnInit {
   private _demande = new Demande();
   constructor(private service:DemandeService,private router:Router,private route:ActivatedRoute) { }
-  public mode = 'CREATE'
+
+  get mode() : String {
+    return this.service.mode
+  }
 
   get demande(): Demande {
     return this._demande;
@@ -24,9 +27,9 @@ export class DemandeCreateComponent implements OnInit {
   ngOnInit(): void {
     if (this.service.demande != null){
       this.demande = this.service.demande
-      this.mode = 'UPDATE'
+      this.service.mode = 'UPDATE'
     }else {
-      this.mode = "CREATE"
+      this.service.mode = "CREATE"
     }
     console.log(this.mode)
   }
@@ -50,7 +53,7 @@ export class DemandeCreateComponent implements OnInit {
   retour() {
     this.demande = new Demande();
     this.service.demande = new Demande();
-    this.mode = "CREATE";
+    this.service.mode = "CREATE";
     this.router.navigateByUrl("/demandes")
   }
 }

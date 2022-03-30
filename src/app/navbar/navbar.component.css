@@ -1,0 +1,30 @@
+body {
+  position: relative;
+}
+nav {
+  position: absolute;
+  margin-top: 1%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 70%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  margin-top: 25px;
+  background-color: rgba(193,7,0,0.96);
+  border: none;
+  width:17%;
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 21px;
+  line-height: 22px;
+  background-color: red;
+  height: 40px;
+  text-align: center;
+}
+
+
