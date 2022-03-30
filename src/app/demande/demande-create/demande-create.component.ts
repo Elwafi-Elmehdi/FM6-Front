@@ -54,7 +54,7 @@ export class DemandeCreateComponent implements OnInit {
 
   retour() {
     this.demande = new Demande();
-    this.service.demande = new Demande();
+    this.service.demande = undefined;
     this.service.mode = "CREATE";
     this.router.navigateByUrl("/demandes")
   }

@@ -13,6 +13,7 @@ import { DemandeCreateComponent } from './demande/demande-create/demande-create.
 import { DemandeListComponent } from './demande/demande-list/demande-list.component';
 import { DemandeCardComponent } from './demande/demande-card/demande-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import {AuthGuard} from "./controller/guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
         FormsModule,
         HttpClientModule
     ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

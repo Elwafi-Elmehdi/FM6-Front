@@ -45,9 +45,9 @@ export class AuthenticationService {
   }
 
   public logout(){
-    this.httpCLient.post(this.url+'/logout/', {}).subscribe(data => {
-      console.log(data)
-    })
+    // this.httpCLient.post(this.url+'/logout/', {}).subscribe(data => {
+    //   console.log(data)
+    // })
     this._token = ''
     this.storedUsername = ''
     this.storageService.remove(environment.tokenLabel)
@@ -58,15 +58,18 @@ export class AuthenticationService {
 
   public isLoggedIn(): boolean {
     this.loadToken();
-    if(this.token != null && this.token !== ''){
-      if(this.jwtHelper.decodeToken(this.token) != null || ''){
-        if(!this.jwtHelper.isTokenExpired(this.token)){
-          this.storedUsername = this.jwtHelper.decodeToken(this.token)._id;
-          this.user.role = this.jwtHelper.decodeToken(this.token).role;
-          this.saveUserAndUsername(this.user);
-          return true
-        }
-      }
+    // if(this.token != null && this.token !== ''){
+    //   if(this.jwtHelper.decodeToken(this.token) != null || ''){
+    //     if(!this.jwtHelper.isTokenExpired(this.token)){
+    //       this.storedUsername = this.jwtHelper.decodeToken(this.token)._id;
+    //       this.user.role = this.jwtHelper.decodeToken(this.token).role;
+    //       this.saveUserAndUsername(this.user);
+    //       return true
+    //     }
+    //   }
+    // }
+    if(this.storageService.get("USERNAME") != null || ''){
+      return true;
     }
     else{
       this.logout();

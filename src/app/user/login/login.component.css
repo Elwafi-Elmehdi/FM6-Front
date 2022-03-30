@@ -4,7 +4,7 @@
   padding: 100px;
   z-index: 1;
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 25%;
   width: 100vw;
 }
@@ -44,7 +44,7 @@
   border-radius: 15px;
   font-style: normal;
   font-weight: 800;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 22px;
   border: 1px solid #EC8C24;
   text-align: center;
