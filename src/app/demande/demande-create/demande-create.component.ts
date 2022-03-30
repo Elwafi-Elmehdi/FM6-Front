@@ -27,8 +27,10 @@ export class DemandeCreateComponent implements OnInit {
   ngOnInit(): void {
     if (this.service.demande != null){
       this.demande = this.service.demande
+      console.log(this.demande)
       this.service.mode = 'UPDATE'
     }else {
+      console.log(false)
       this.service.mode = "CREATE"
     }
     console.log(this.mode)

@@ -14,6 +14,7 @@ export class AuthenticationService {
   constructor(private httpCLient:HttpClient,
               private storageService:LocalStorageService,
               private router:Router) { }
+
   private url = environment.urlBase+'/users';
   private jwtHelper = new JwtHelperService();
   private _user = new User();
@@ -32,14 +33,11 @@ export class AuthenticationService {
     return JSON.parse(<string>this.storageService.get(environment.userLabel));
   }
   public login(user:User){
-    this.httpCLient.post<any>(this.url+'/login/',user,{observe:'response'}).subscribe(data => {
-      console.log(data.headers.get("Jwt-Token"));
-      console.log(data.headers);
-      console.log(data.body)
-      if(data.headers.get("Jwt-Token") && data.body.user){
-        let token = data.headers.get("Jwt-Token");
-        let user = data.body
-        this.saveToken(token)
+    this.httpCLient.post<any>(this.url+'/login/',user).subscribe(data => {
+      console.log(data.role)
+      if(data.username){
+        let user = data
+        console.log(data)
         this.saveUserAndUsername(user)
         this.router.navigate(['/demandes'])
       }
