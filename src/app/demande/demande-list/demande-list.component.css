@@ -127,3 +127,17 @@ label {
 .recherche_btn {
   margin-top: 10px;
 }
+.generer_rapport {
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 10px;
+  background-color: #9F2424;
+  height: 40px;
+  border: none;
+  margin: 0 10px;
+  padding: 15px;
+  text-align: center;
+}

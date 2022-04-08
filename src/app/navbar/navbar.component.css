@@ -26,9 +26,25 @@ button {
   height: 40px;
   text-align: center;
 }
+label {
+  background-color: #EC8C24;
+  padding: 10px;
+  color: #FFFFFF;
+  border-radius: 15px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 21px;
+  line-height: 22px;
+  height: 40px;
+  text-align: center;
+
+}
 
 div  {
   width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 

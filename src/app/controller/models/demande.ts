@@ -9,6 +9,8 @@ export class Demande {
   nom:string| undefined;
   anciennete:number|undefined;
   prenom:string|undefined;
+  nomArabic:string|undefined;
+  prenomArabic:string|undefined;
   cin:string|undefined;
   naissance:string|undefined;
   adherentCode:string|undefined;

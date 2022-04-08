@@ -19,7 +19,16 @@ export class AuthenticationService {
   private jwtHelper = new JwtHelperService();
   private _user = new User();
   private _token :string|null = ''
+  private _role = ''
   private _storedUsername = ''
+
+  get role(): string {
+    return this._role;
+  }
+
+  set role(value: string) {
+    this._role = value;
+  }
 
   public saveToken(token: string | null){
     this._token = token;
@@ -39,6 +48,7 @@ export class AuthenticationService {
         let user = data
         console.log(data)
         this.saveUserAndUsername(user)
+        this.role = data.role;
         this.router.navigate(['/demandes'])
       }
     })

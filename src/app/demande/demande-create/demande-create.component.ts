@@ -27,20 +27,27 @@ export class DemandeCreateComponent implements OnInit {
   ngOnInit(): void {
     if (this.service.demande != null){
       this.demande = this.service.demande
-      console.log(this.demande)
       this.service.mode = 'UPDATE'
     }else {
-      console.log(false)
       this.service.mode = "CREATE"
     }
-    console.log(this.mode)
   }
 
   addDemande(demande: Demande) {
-    this.service.addDemande(demande).subscribe(res => {
-      console.log(res);
+    if (this.mode == "CREATE"){
+      this.service.addDemande(demande).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['demandes']);
+        console.log(true)
+      })
+    }else {
+      this.service.updateDemande(demande).subscribe(res => {
+        console.log(res);
+      })
+      console.log(false);
       this.router.navigate(['demandes']);
-    })
+    }
+
   }
   deleteDemande(demande:Demande) {
     this.service.deleteDemande(demande).subscribe(res => {

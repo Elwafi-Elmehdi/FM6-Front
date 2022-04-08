@@ -1,52 +1,52 @@
 <app-navbar></app-navbar>
 <div class="criterefields ">
  <div class="critere_header">
-   <h1>Critères Grobals</h1>
-   <button class="btn btn_header" routerLink="/demandes">Retour</button>
+   <h1>معايير تنقيط</h1>
+   <button class="btn btn_header" routerLink="/demandes">رجوع</button>
  </div>
   <hr>
   <div class="divForm">
   <form action="#!" class="forma" >
     <div class="first">
     <div>
-      <h3 id="adherentHeader">Adhérent</h3>
+      <h3 id="adherentHeader">المستفيد</h3>
       <hr>
-      <label for="age">Age</label>
+      <label for="age">السن</label>
     <input type="number" id="age" name="age" [(ngModel)]="critere.age">
     </div>
     <div>
-    <label for="anciennete">Anciennete</label>
+    <label for="anciennete">الأقدمية</label>
     <input type="number" id="anciennete" name="anciennete" [(ngModel)]="critere.anciennete" >
     </div>
-      <label for="etatPhysique">Etat Physique</label>
+      <label for="etatPhysique">عاجز</label>
       <input type="number" id="etatPhysique" name="etatPhysique" [(ngModel)]="critere.etatPhysique">
     <div>
       <label for="valeurChaqueEnfant">Point Pour Chaque Enfant</label>
       <input type="number" id="valeurChaqueEnfant" name="valeurChaqueEnfant" [(ngModel)]="critere.valeurChaqueEnfant">
     </div>
     <!-- START Environnement -->
-      <h3 id="environnementHeader">Environnement</h3>
+      <h3 id="environnementHeader">الوسط</h3>
       <hr>
-      <label for="environnementCivil">Environnement Civil</label>
+      <label for="environnementCivil">حضري</label>
     <input type="number" id="environnementCivil" name="environnementCivil" [(ngModel)]="critere.environnementCivil">
-    <label for="environnementRural">Environnement Rural</label>
+    <label for="environnementRural">قروي</label>
     <input type="number" id="environnementRural" name="environnementRural" [(ngModel)]="critere.environnementRural">
     <!-- END Environnement -->
 
     <!-- START Situation familliale -->
 
-    <h3 id="situationFamilliale">Situation Familliale </h3>
+    <h3 id="situationFamilliale">الحالة العائلية</h3>
       <hr>
-    <label for="sfCelibataire">Celibataire</label>
+    <label for="sfCelibataire">عازب(ة)</label>
     <input type="number" id="sfCelibataire" name="sfCelibataire" [(ngModel)]="critere.sfCelibataire">
 
-    <label for="sfMarie">Marie</label>
+    <label for="sfMarie">متزوج(ة)</label>
     <input type="number" id="sfMarie"  name="sfMarie" [(ngModel)]="critere.sfMarie">
 
-    <label for="sfVeuf">Veuf</label>
+    <label for="sfVeuf">أرمل(ة)</label>
     <input type="number" id="sfVeuf" name="sfVeuf" [(ngModel)]="critere.sfVeuf">
 
-    <label for="sfDivorce">Divorce</label>
+    <label for="sfDivorce">مطلق(ة)</label>
     <input type="number" id="sfDivorce" name="sfDivorce" [(ngModel)]="critere.sfDivorce">
 
     </div>
@@ -54,45 +54,45 @@
 
     <!-- START Logement -->
     <div class="second">
-    <h3 id="logementHeader">Logement </h3>
+    <h3 id="logementHeader">وضعية السكن</h3>
       <hr>
-    <label for="logementLouer">Louer</label>
+    <label for="logementLouer">كراء</label>
     <input type="number" id="logementLouer" name="logementLouer" [(ngModel)]="critere.logementLouer">
 
-    <label for="logementAnnexeMosque">AnnexeMosque</label>
+    <label for="logementAnnexeMosque">ملحق بالمسجد</label>
     <input type="number" id="logementAnnexeMosque" name="logementAnnexeMosque" [(ngModel)]="critere.logementAnnexeMosque">
 
-    <label for="logementFamille">Famille</label>
+    <label for="logementFamille">لدى العائلة أو محسنين</label>
     <input type="number" id="logementFamille" name="logementFamille" [(ngModel)]="critere.logementFamille">
     <!-- END Logement -->
 
     <!-- START Fonction -->
 
-    <h3 id="fonctionHeader">Fonction </h3>
+    <h3 id="fonctionHeader">المهمة </h3>
       <hr>
-    <label for="fonctionImame">Imame</label>
+    <label for="fonctionImame">إمام</label>
     <input type="number" id="fonctionImame"  name="fonctionImame"[(ngModel)]="critere.fonctionImame">
 
-    <label for="fonctionKhatib">Khatib</label>
+    <label for="fonctionKhatib">خطيب</label>
     <input type="number" id="fonctionKhatib" name="fonctionKhatib"  [(ngModel)]="critere.fonctionKhatib">
 
-    <label for="fonctionMoadin">Moadin</label>
+    <label for="fonctionMoadin">مؤذن</label>
     <input type="number" id="fonctionMoadin" name="fonctionMoadin" [(ngModel)]="critere.fonctionMoadin">
 
-    <label for="fonctionObservateur">Observateur</label>
+    <label for="fonctionObservateur">حارس</label>
     <input type="number" id="fonctionObservateur" name="fonctionObservateur" [(ngModel)]="critere.fonctionObservateur">
 
-    <label for="guideEncadrentPrecheur">Guide,Encadrent et Precheur</label>
+    <label for="guideEncadrentPrecheur">واعظ(ة)/إمام مؤطر/مرشدة</label>
     <input type="number" id="guideEncadrentPrecheur" name="guideEncadrentPrecheur" [(ngModel)]="critere.guideEncadrentPrecheur">
 
-    <label for="fonctionGardien">Gardien</label>
+    <label for="fonctionGardien">مراقب</label>
     <input type="number" id="fonctionGardien"  name="fonctionGardien" [(ngModel)]="critere.fonctionGardien">
 
-    <label for="fonctionMenage">Menage</label>
+    <label for="fonctionMenage">منظف (ة)</label>
     <input type="number" id="fonctionMenage"  name="fonctionMenage" [(ngModel)]="critere.fonctionMenage">
     <!-- END Fonction  -->
       <label id="messageResultat"></label>
-      <button (click)="updateCritere(critere)" class=" btn btn-primary btn__fm6">Modifier</button>
+      <button (click)="updateCritere(critere)" class=" btn btn-primary btn__fm6">التعديل</button>
     </div>
   </form>
   </div>

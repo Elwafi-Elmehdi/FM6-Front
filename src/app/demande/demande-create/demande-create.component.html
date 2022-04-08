@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="forma">
   <div class="demande_creer_header">
-    <h1>Nouvelle Demande</h1>
+    <h1>طلب جديد</h1>
     <button id="retour" (click)="retour()" >Retour</button>
   </div>
   <hr>
@@ -15,6 +15,16 @@
       <label for="prenom">Prénom</label>
       <input type="text" name="prenom" id="prenom" [(ngModel)]="demande.prenom" required>
     </div>
+
+      <div>
+        <label for="nomArabic">Nom</label>
+        <input type="text" name="nomArabic" id="nomArabic" [(ngModel)]="demande.nomArabic" required>
+      </div>
+      <div>
+        <label for="prenomArabic">Prénom</label>
+        <input type="text" name="prenomArabic" id="prenomArabic" [(ngModel)]="demande.prenomArabic" required>
+      </div>
+
     <div>
       <label for="naissance">Date de naissance</label>
       <input style="width:45%; height: 30px;" type="date" name="naissance"  [defaultValue]="demande.naissance" id="naissance" min="1900-01-01" max="2004-01-01" [(ngModel)]="demande.naissance" required>

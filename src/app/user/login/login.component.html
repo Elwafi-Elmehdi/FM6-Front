@@ -1,10 +1,10 @@
 <div class="card w-50">
   <div class="card-body">
     <img id="logo__fm6"  src="/assets/logo-fm6.png" alt="logo-fondation-fm-6">
-    <input class="form-control login__input" type="text" placeholder="Nom d'utilisateur" name="username" [(ngModel)]="user.username">
-    <input class="form-control login__input " type="password" placeholder="Mot de pass" name="password" [(ngModel)]="user.password">
-    <div><label class="errorMessage" [hidden]="error">Nom d'utilisateur/Mot de passe est faux</label></div>
-    <button class="btn__fm6  login__btn" (click)="login(user)">Se connecter</button>
+    <input class="form-control login__input" type="text" placeholder="اسم المستخدم" name="username" [(ngModel)]="user.username">
+    <input class="form-control login__input " type="password" placeholder="كلمه السر" name="password" [(ngModel)]="user.password">
+    <div><label class="errorMessage" [hidden]="error">اسم المستخدم أو كلمة السر غير صحيحة</label></div>
+    <button class="btn__fm6  login__btn" (click)="login(user)">تسجيل الدخول</button>
   </div>
 </div>
 <app-footer></app-footer>

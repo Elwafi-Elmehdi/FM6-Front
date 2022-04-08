@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../controller/services/authentication.service";
 import {User} from "../controller/models/user";
+import {LocalStorageService} from "../controller/services/local-storage.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-navbar',
@@ -9,14 +11,16 @@ import {User} from "../controller/models/user";
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private service:AuthenticationService) { }
-  public usernme:string|undefined;
-  public role:string|undefined;
+  constructor(private service:AuthenticationService,private storagedService:LocalStorageService) { }
+
+  public usernme:string|undefined|null;
+  public role:string|undefined|null;
+
   ngOnInit(): void {
-   this.usernme = this.service.storedUsername;
    let user = new User();
-    user = this.service.getUserFromStorage();
-   this.role = user.role?.substr("ROLE_".length);
+   this.usernme = this.storagedService.get(environment.usernameLabel);
+   user = this.service.getUserFromStorage();
+   this.role = this.service.role.substr("ROLE_".length);
   }
 
   logout() {

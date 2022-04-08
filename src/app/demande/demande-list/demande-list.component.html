@@ -39,8 +39,14 @@
     <div class="demande__list_header">
       <h2>Liste des demandes</h2>
      <div class="nav_btns">
+       <select  [hidden]="isAdmin()" >
+         <option *ngFor="let year of generateYears()" value="{{year}}">{{year}}</option>
+       </select>
+       <a href="localhost:8036/demandes/reporting/2022/" download="report.xls">
+        <button  [hidden]="isAdmin()" class="generer_rapport"  style="background-color: forestgreen;">Generer rapport</button>
+       </a>
        <button routerLink="/demandes/creer" >Deposer une demande</button>
-       <button routerLink="/criteres" >Critere Globale</button>
+       <button routerLink="/criteres" [hidden]="isAdmin()" >Critere Globale</button>
      </div>
 
     </div>

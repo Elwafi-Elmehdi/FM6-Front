@@ -13,7 +13,7 @@ svg{
   position: fixed;
   width: 100vw;
   top: 50%;
-  background: linear-gradient(175.98deg, #FFFFFF 4.63%, rgba(255, 255, 255, 0) 96.72%);
+  background: linear-gradient(175.98deg, #FFFFFF 90%, rgba(255, 255, 255, 0) 40%);
 }
 
 .background__svg {
