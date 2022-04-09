@@ -1,3 +1,5 @@
+import {Enfant} from "./enfant";
+
 export class Demande {
 
 
@@ -26,5 +28,6 @@ export class Demande {
   fonction:number|undefined;
   logement:number|undefined;
   conditionPhysique:number|undefined;
+  enfants:Array<Enfant>|undefined;
   createdAt:string|undefined;
 }
