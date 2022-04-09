@@ -3,6 +3,8 @@ export class Demande {
 
 
   id:number|undefined;
+  rib:string|undefined;
+  province:string|undefined;
   reference:string|undefined;
   score:number|undefined;
   age:number|undefined;

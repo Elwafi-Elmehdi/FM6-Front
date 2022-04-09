@@ -3,6 +3,7 @@ import {DemandeService} from "../../controller/services/demande.service";
 import {Demande} from "../../controller/models/demande";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../controller/services/authentication.service";
+import {compareNumbers} from "@angular/compiler-cli/src/diagnostics/typescript_version";
 
 @Component({
   selector: 'app-demande-list',
@@ -23,6 +24,8 @@ export class DemandeListComponent implements OnInit {
     telephone:null,
     anciennete:null
   }
+  public year = new Date().getFullYear();
+
   ngOnInit(): void {
     this.generateYears()
     this.service.getDemandes().subscribe(res => {
@@ -32,8 +35,8 @@ export class DemandeListComponent implements OnInit {
   }
 
   recherche() {
-    console.log(this.filterObj)
-    this.service.getDemandeByCIN(this.filterObj.cin).subscribe(res => {
+    this.service.searchDemandeByCriteria(this.filterObj).subscribe(res => {
+      console.log(res)
       this.demandes = res;
     })
   }
@@ -55,5 +58,24 @@ export class DemandeListComponent implements OnInit {
     return years;
   }
 
+  getReport(year:number){
+    if(year !== null||undefined){
+      console.log(year)
+    this.service.getReport(year).subscribe(data => {
+      this.downloadFile(data)
+    });
+    }
+  }
 
+  downloadFile(data: Object) {
+    // @ts-ignore
+    const blob = new Blob([data], { type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url= window.URL.createObjectURL(blob);
+    window.open(url);
+    window.URL.revokeObjectURL(url);
+  }
+
+  setYear(year: Number) {
+    this.year = year.valueOf();
+  }
 }

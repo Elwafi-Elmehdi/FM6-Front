@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     // }
   }
   login(user:User) {
-    this.authService.login(user);
+    this.error = this.authService.login(user);
   }
 
   get user(): User {

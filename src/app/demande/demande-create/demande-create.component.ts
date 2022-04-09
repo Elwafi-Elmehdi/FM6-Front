@@ -11,7 +11,7 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 export class DemandeCreateComponent implements OnInit {
   private _demande = new Demande();
   constructor(private service:DemandeService,private router:Router,private route:ActivatedRoute) { }
-
+  public datesNaissance:Array<any> =[];
   get mode() : String {
     return this.service.mode
   }
@@ -22,6 +22,13 @@ export class DemandeCreateComponent implements OnInit {
 
   set demande(value: Demande) {
     this._demande = value;
+  }
+  removevalue(i:number){
+    this.datesNaissance.splice(i,1);
+  }
+
+  addvalue(){
+    this.datesNaissance.push({naissance:"01/05/1999"});
   }
 
   ngOnInit(): void {
@@ -64,5 +71,17 @@ export class DemandeCreateComponent implements OnInit {
     this.service.demande = undefined;
     this.service.mode = "CREATE";
     this.router.navigateByUrl("/demandes")
+  }
+  public resolveLogement(){
+      switch (this.demande.logement) {
+        case 0:
+          return "كراء";
+        case 1:
+          return "لدى العائلة أو محسنين";
+        case 2:
+          return "ملحق بالمسجد"
+        default:
+          return "";
+      }
   }
 }

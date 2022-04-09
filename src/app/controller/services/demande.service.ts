@@ -40,19 +40,10 @@ export class DemandeService {
     return this.httpClient.get<Array<Demande>>(this.url+'cin/'+cin);
   }
   getReport(year:number){
-    // this.httpClient.get(this.url + 'reporting/' + year).subscribe(data => this.downloadFile(data)),//console.log(data),
-    //   () => console.log('Error downloading the file.'),
-    //   () => console.info('OK');
-    window.location.href='localhost:8036/demandes/reporting/2022/';
-
+    return this.httpClient.get(this.url + 'reporting/' + year +'/', { responseType: 'arraybuffer' });
   }
 
-  downloadFile(data: Object) {
-    // @ts-ignore
-    const blob = new Blob([data], { type: 'application/vnd.ms-excel' });
-    const url= window.URL.createObjectURL(blob);
-    window.open(url);
-  }
+
 
   addDemande(demande:Demande) {
     return this.httpClient.post(this.url,demande);
@@ -65,7 +56,7 @@ export class DemandeService {
     return this.httpClient.delete(this.url,{body:demande});
   }
   searchDemandeByCriteria(obj:any){
-    return this.httpClient.post<Array<Demande>>(this.url+'criteres/',obj);
+    return  this.httpClient.post<Array<Demande>>(this.url+'criteres/',obj);
   }
 
 }

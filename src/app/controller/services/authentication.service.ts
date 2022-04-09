@@ -41,7 +41,7 @@ export class AuthenticationService {
     this.user = JSON.parse(<string>this.storageService.get(environment.userLabel));
     return JSON.parse(<string>this.storageService.get(environment.userLabel));
   }
-  public login(user:User){
+  public login(user:User):boolean{
     this.httpCLient.post<any>(this.url+'/login/',user).subscribe(data => {
       console.log(data.role)
       if(data.username){
@@ -51,7 +51,13 @@ export class AuthenticationService {
         this.role = data.role;
         this.router.navigate(['/demandes'])
       }
+      return true;
+    },error => {
+      console.log("Error in login")
+      console.log(error)
+      return false;
     })
+    return false;
   }
 
   public logout(){

@@ -2,116 +2,131 @@
 <div class="forma">
   <div class="demande_creer_header">
     <h1>طلب جديد</h1>
-    <button id="retour" (click)="retour()" >Retour</button>
+    <button id="retour" (click)="retour()" >رجوع</button>
   </div>
   <hr>
   <form>
     <div>
     <div>
-      <label for="nom">Nom</label>
+      <label for="nom">الاسم العائلي بالفرنسية لصاحب الطلب</label>
       <input type="text" name="nom" id="nom" [(ngModel)]="demande.nom" required>
     </div>
     <div>
-      <label for="prenom">Prénom</label>
+      <label for="prenom">الاسم الشخصي بالفرنسية لصاحب الطلب</label>
       <input type="text" name="prenom" id="prenom" [(ngModel)]="demande.prenom" required>
     </div>
 
-      <div>
-        <label for="nomArabic">Nom</label>
-        <input type="text" name="nomArabic" id="nomArabic" [(ngModel)]="demande.nomArabic" required>
-      </div>
-      <div>
-        <label for="prenomArabic">Prénom</label>
-        <input type="text" name="prenomArabic" id="prenomArabic" [(ngModel)]="demande.prenomArabic" required>
-      </div>
+
 
     <div>
-      <label for="naissance">Date de naissance</label>
+      <label for="naissance">تاريخ الازدياد</label>
       <input style="width:45%; height: 30px;" type="date" name="naissance"  [defaultValue]="demande.naissance" id="naissance" min="1900-01-01" max="2004-01-01" [(ngModel)]="demande.naissance" required>
     </div>
     <div>
-      <label for="cin">CIN</label>
+      <label for="cin">رقم البطاقة الوطنية</label>
       <input type="text" name="cin" id="cin" [(ngModel)]="demande.cin" required>
     </div>
     <div>
-      <label for="adherentCode">Adhérent code</label>
+      <label for="adherentCode">رقم الانخراط</label>
       <input type="text" name="adherentCode" id="adherentCode" [(ngModel)]="demande.adherentCode">
     </div>
     <div>
-      <label for="telephone">Téléphone</label>
+      <label for="telephone">رقم الهاتف</label>
       <input type="text" name="telephone" id="telephone" [(ngModel)]="demande.telephone" required>
     </div>
     <div>
-      <label for="adresseActualle">Adresse actuelle</label>
+      <label for="adresseActualle">العنوان الحالي</label>
       <input type="text" name="adresseActualle" id="adresseActualle" required [(ngModel)]="demande.adresseActualle">
     </div>
       <div>
-        <label for="mosqueRef">Référence de mosquée</label>
+        <label for="rib">رقم الحساب البنكي</label>
+        <input type="text" name="rib" id="rib" required [(ngModel)]="demande.rib">
+      </div>
+      <div>
+        <label for="mosqueRef">الرمز المعلوماتي للمسجد</label>
         <input type="text" name="mosqueRef" id="mosqueRef" required [(ngModel)]="demande.mosqueRef">
       </div>
-      </div>
-    <div>
-
       <div>
-        <label for="mosque">Adresse de mosquée</label>
+        <label for="province">الإقليم</label>
+        <input type="text" name="province" id="province" required [(ngModel)]="demande.province">
+      </div>
+      <div *ngFor="let value of datesNaissance; let i = index">
+        <input style="width:45%; height: 30px;" type="date" name="naissance"  [defaultValue]="demande.naissance" id="enfantNaissance" min="1900-01-01" max="2004-01-01" [(ngModel)]="demande.naissance" required>
+        <button (click)="removevalue(i)">Remove</button>
+      </div>
+      <button (click)="addvalue()">ADD</button>
+      </div>
+
+    <div>
+      <div>
+        <label for="nomArabic">الاسم العائلي بالعربية لصاحب الطلب</label>
+        <input type="text" name="nomArabic" id="nomArabic" [(ngModel)]="demande.nomArabic" required>
+      </div>
+      <div>
+        <label for="prenomArabic">الاسم الشخصي بالعربية لصاحب الطلب</label>
+        <input type="text" name="prenomArabic" id="prenomArabic" [(ngModel)]="demande.prenomArabic" required>
+      </div>
+      <div>
+        <label for="mosque">عنوان المسجد</label>
         <input type="text" name="mosque" id="mosque" required [(ngModel)]="demande.mosque">
       </div>
     <div>
-      <label for="dateJoindreMosque">Date rejoint de la mosquée</label>
+      <label for="dateJoindreMosque">تاريخ الالتحاق بالمسجد</label>
       <input style="width:43%; height: 30px;" [defaultValue]="demande.dateJoindreMosque" type="date" name="dateJoindreMosque" id="dateJoindreMosque" min="1942-01-01" max="2022-03-26" [(ngModel)]="demande.dateJoindreMosque" required>
     </div>
     <div>
-      <label for="environment">Environment</label>
+      <label for="environment">الوسط</label>
       <select name="environment" required id="environment" [(ngModel)]="demande.environment">
         <option selected disabled [hidden]="mode ==='UPDATE'? false : true">{{demande.environment}}</option>
-        <option value="0">Civil</option>
-        <option value="1">Rural</option>
+        <option value="0">حضري</option>
+        <option value="1">قروي</option>
       </select>
     </div>
     <div>
-      <label for="sf">Situation Familiale</label>
+      <label for="sf">الحالة العائلية</label>
       <select name="sf" id="sf" [value]="demande.sf" [(ngModel)]="demande.sf" required>
         <option selected disabled [hidden]="mode ==='UPDATE'? false : true">{{demande.sf}}</option>
-        <option value="0">Célibataire</option>
-        <option value="1">Veuf</option>
-        <option value="2">Marié</option>
-        <option value="3">Divorcé</option>
+        <option value="0">عازب(ة)</option>
+        <option value="1">أرمل(ة)</option>
+        <option value="2">متزوج(ة)</option>
+        <option value="3">مطلق(ة)</option>
       </select>
     </div>
 
     <div>
-      <label for="fonction">Fonction</label>
+      <label for="fonction">المهمة</label>
       <select  name="fonction" id="fonction" [value]="demande.fonction" [(ngModel)]="demande.fonction" required >
         <option selected disabled [hidden]="mode==='UPDATE'? false : true">{{demande.fonction}}</option>
-        <option value="0">Imame</option>
-        <option value="1">Khatib</option>
-        <option value="2">Moadin</option>
-        <option value="3">Gardien</option>
-        <option value="4">Menage</option>
-        <option value="4">Precheur</option>
+        <option value="0">إمام</option>
+        <option value="1">خطيب</option>
+        <option value="2">مؤذن</option>
+        <option value="3">حارس</option>
+        <option value="4">منظف (ة)</option>
+        <option value="5">واعظ(ة)/إمام مؤطر/مرشدة</option>
+        <option value="6">مراقب</option>
       </select>
     </div>
     <div>
-      <label for="logement">Logement</label>
+      <label for="logement">وضعية السكن</label>
       <select name="logement" id="logement" [value]="demande.logement" required [(ngModel)]="demande.logement">
         <option selected disabled [hidden]=" mode==='UPDATE' ? false : true">{{demande.logement}}</option>
-        <option value="0">Louer</option>
-        <option value="1">Famille</option>
-        <option value="2">Annexe Mosque</option>
+        <option value="0">كراء</option>
+        <option value="1">لدى العائلة أو محسنين</option>
+        <option value="2">ملحق بالمسجد</option>
       </select>
     </div>
 
     <div>
-      <label for="conditionPhysique">Condition Physique</label>
+      <label for="conditionPhysique">الصفة</label>
       <select name="conditionPhysique" id="conditionPhysique" [value]="demande.conditionPhysique" required [(ngModel)]="demande.conditionPhysique">
         <option selected disabled [hidden]="mode==='UPDATE'? false : true">{{demande.conditionPhysique}}</option>
-        <option value="0">Capable</option>
-        <option value="1">Incapable</option>
+        <option value="0">يشتغل</option>
+        <option value="1">عاجز</option>
       </select>
     </div>
       <div class="action_btns">
-        <button id="update" (click)="addDemande(demande)">{{mode === "CREATE" ? "Déposer une demande" : "Modifier la demande"}}</button>
-        <button id="delete" (click)="deleteDemande(demande)" [hidden]="mode ==='UPDATE' ? false : true" >Suprimmer la demande</button>
+        <button id="update" (click)="addDemande(demande)">{{mode === "CREATE" ? "تقديم طلب" : "تعديل الطلب"}}</button>
+        <button id="delete" (click)="deleteDemande(demande)" [hidden]="mode ==='UPDATE' ? false : true" >احذف الطلب</button>
       </div>
     </div>
   </form>

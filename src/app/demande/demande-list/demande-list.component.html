@@ -2,71 +2,70 @@
 <main class="lista">
   <aside class="filters">
     <div class="search-criteria">
-      <h4>Recherche</h4>
+      <h4>بحث</h4>
       <hr>
-      <label for="cin">CIN</label>
+      <label for="cin">رقم البطاقة الوطنية</label>
       <input type="text" id="cin" name="cin" [(ngModel)]="filterObj.cin">
-      <label for="codeAdherent">Code Adhérent</label>
+      <label for="codeAdherent">رقم الانخراط</label>
       <input type="text" id="codeAdherent" name="codeAdherent" [(ngModel)]="filterObj.codeAdherent" >
-      <label for="telephone">Téléphone</label>
+      <label for="telephone">رقم الهاتف</label>
       <input type="text" id="telephone" name="telephone" [(ngModel)]="filterObj.telephone">
-      <button class="filterbutton recherche_btn" (click)="recherche()">rechercher</button>
+<!--      <button class="filterbutton recherche_btn" (click)="recherche()">rechercher</button>-->
     </div>
     <div class="filters">
-      <h4>Filteres</h4>
+      <h4>تصنيف</h4>
       <hr>
-      <label for="age">
-        Age
-      </label>
+      <label for="age">السن</label>
       <input type="range"   min="18" max="130" name="age" id="age" [(ngModel)]="filterObj.age">
       <i>{{filterObj.age}}</i>
-      <label for="anciennete">Ancienneté</label>
+      <label for="anciennete">الأقدمية</label>
       <input type="range"   min="1" max="60" name="age" id="anciennete" [(ngModel)]="filterObj.anciennete">
       <i>{{filterObj.anciennete}}</i>
-      <label for="fonction">Fonction</label>
+      <label for="fonction">المهمة</label>
       <select  name="fonction" id="fonction" [(ngModel)]="filterObj.fonction" >
-        <option value="0">Imame</option>
-        <option value="1">Khatib</option>
-        <option value="2">Moadin</option>
-        <option value="3">Gardien</option>
-        <option value="4">Menage</option>
-        <option value="4">Precheur</option>
+        <option value="0">إمام</option>
+        <option value="1">خطيب</option>
+        <option value="2">مؤذن</option>
+        <option value="3">حارس</option>
+        <option value="4">منظف (ة)</option>
+        <option value="5">واعظ(ة)/إمام مؤطر/مرشدة</option>
+        <option value="5">مراقب</option>
       </select>
-      <button (click)="recherche()" id="delete" class="filterbutton">appliquer</button>
+      <button (click)="recherche()" id="delete" class="filterbutton">ابحث</button>
     </div>
   </aside>
   <section class="demandes">
     <div class="demande__list_header">
-      <h2>Liste des demandes</h2>
+      <h2>قائمة الطلبات</h2>
      <div class="nav_btns">
        <select  [hidden]="isAdmin()" >
-         <option *ngFor="let year of generateYears()" value="{{year}}">{{year}}</option>
+         <option (click)="setYear(year)" *ngFor="let year of generateYears()" value="{{year}}">{{year}}</option>
        </select>
-       <a href="localhost:8036/demandes/reporting/2022/" download="report.xls">
-        <button  [hidden]="isAdmin()" class="generer_rapport"  style="background-color: forestgreen;">Generer rapport</button>
+       <a  download>
+        <button  (click)="getReport(year)" [hidden]="isAdmin()" class="generer_rapport"  style="background-color: forestgreen;">تنزيل التقرير</button>
        </a>
-       <button routerLink="/demandes/creer" >Deposer une demande</button>
-       <button routerLink="/criteres" [hidden]="isAdmin()" >Critere Globale</button>
+       <button routerLink="/demandes/creer" >تقديم طلب</button>
+       <button routerLink="/criteres" [hidden]="isAdmin()" >المعايير</button>
      </div>
 
     </div>
     <hr>
     <table class="table table-striped table-hover table-bordered">
       <thead class="thead thead-light">
-      <th scope="col">id</th>
-      <th scope="col">référence</th>
-      <th scope="col">score</th>
-      <th scope="col">cin</th>
-      <th scope="col">code adhérent</th>
-      <th scope="col">prénom</th>
-      <th scope="col">nom</th>
-      <th scope="col">age</th>
-      <th scope="col">ancienneté</th>
-      <th scope="col">téléphone</th>
+      <th scope="col">الترتيب</th>
+      <th scope="col">رقم الطلب</th>
+      <th scope="col">الاستحقاق</th>
+      <th scope="col">رقم البطاقة الوطنية</th>
+      <th scope="col">رقم الانخراط</th>
+      <th scope="col">الاسم الشخصي</th>
+      <th scope="col">الاسم العائلي</th>
+      <th scope="col">السن</th>
+      <th scope="col">الأقدمية</th>
+      <th scope="col">رقم الهاتف</th>
       </thead>
       <tbody>
       <tr (click)="getLink(demande)" *ngFor="let demande of demandes;index as i">
-        <td>{{i}}</td>
+        <td>{{i+1}}</td>
         <td>{{demande.reference}}</td>
         <td style="color: green; font-style: normal; font-weight: bolder">{{demande.score}}</td>
         <td>{{demande.cin}}</td>
