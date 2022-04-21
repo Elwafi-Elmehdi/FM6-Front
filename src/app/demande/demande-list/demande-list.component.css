@@ -144,3 +144,7 @@ label {
   padding: 15px;
   text-align: center;
 }
+li>a {
+  color: #9F2424;
+  font-size: large;
+}

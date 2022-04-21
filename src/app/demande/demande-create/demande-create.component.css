@@ -82,6 +82,9 @@ h1 {
   justify-content: flex-end;
   margin-top: 50px;
 }
+.action_btns > button {
+  width: 20px;
+}
 #delete {
   background-color: rgba(193,7,0,0.96);
   border: none;
@@ -99,4 +102,17 @@ h1 {
   border: none;
   width:50%;
 }
+.enfant__controls > *{
+  display: inline-block;
+}
+#addKid {
+  width: 100%;
+}
+.addkids {
+  text-align: center;
+  float: right;
+}
+
+
+
 

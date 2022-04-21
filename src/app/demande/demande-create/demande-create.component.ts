@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Demande} from "../../controller/models/demande";
 import {DemandeService} from "../../controller/services/demande.service";
 import {ActivatedRoute, Route, Router} from "@angular/router";
+import {Enfant} from "../../controller/models/enfant";
 
 @Component({
   selector: 'app-demande-create',
@@ -24,11 +25,12 @@ export class DemandeCreateComponent implements OnInit {
     this._demande = value;
   }
   removevalue(i:number){
-    this.datesNaissance.splice(i,1);
+    this.demande.enfants.splice(i,1);
   }
 
   addvalue(){
-    this.datesNaissance.push({naissance:"01/05/1999"});
+    this.demande.enfants.push(new Enfant());
+    console.log(this.demande.enfants)
   }
 
   ngOnInit(): void {

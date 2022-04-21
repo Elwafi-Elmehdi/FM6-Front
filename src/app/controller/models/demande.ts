@@ -28,6 +28,6 @@ export class Demande {
   fonction:number|undefined;
   logement:number|undefined;
   conditionPhysique:number|undefined;
-  enfants:Array<Enfant>|undefined;
+  enfants:Array<Enfant>= new Array<Enfant>();
   createdAt:string|undefined;
 }

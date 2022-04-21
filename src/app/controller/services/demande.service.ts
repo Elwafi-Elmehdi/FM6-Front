@@ -32,8 +32,13 @@ export class DemandeService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getDemandes() {
-    return this.httpClient.get<Array<Demande>>(this.url);
+  getDemandes(index:any) {
+    if(index === null){
+      return this.httpClient.get(this.url);
+    }
+    else{
+      return this.httpClient.get(this.url+"?page="+index);
+    }
   }
 
   getDemandeByCIN(cin:string|null|undefined) {
