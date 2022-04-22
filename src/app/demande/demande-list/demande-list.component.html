@@ -32,6 +32,7 @@
         <option value="5">مراقب</option>
       </select>
       <button (click)="recherche()" id="delete" class="filterbutton">ابحث</button>
+      <button (click)="pagination(null)" id="default" class="filterbutton">العودة إلى حالتها الأصلية</button>
     </div>
   </aside>
   <section class="demandes">
@@ -42,7 +43,7 @@
          <option (click)="setYear(year)" *ngFor="let year of generateYears()" value="{{year}}">{{year}}</option>
        </select>
        <a  download>
-        <button  (click)="getReport(year)" [hidden]="isAdmin()" class="generer_rapport"  style="background-color: forestgreen;">تنزيل التقرير</button>
+        <button  (click)="isAdmin() && getReport(year)" [hidden]="isAdmin()" class="generer_rapport"  style="background-color: forestgreen;">تنزيل التقرير</button>
        </a>
        <button routerLink="/demandes/creer" >تقديم طلب</button>
        <button routerLink="/criteres" [hidden]="isAdmin()" >المعايير</button>
@@ -81,11 +82,13 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center" >
         <li class="page-item" [hidden]="first">
-          <a (click)="prev()" class="page-link" href="#" aria-label="Previous">
+          <a (click)="prev()" class="page-link" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <li class="page-item" *ngFor="let index of arraya" ><a class="page-link" (click)="pagination(index)">{{index+1}}</a></li>
+        <li class="page-item" *ngFor="let index of arraya" >
+          <a class="page-link" (click)="pagination(index)">{{index+1}}</a>
+        </li>
         <li class="page-item" [hidden]="last">
           <a (click)="next()" class="page-link" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
@@ -93,11 +96,6 @@
         </li>
       </ul>
     </nav>
-<!--    <div class="table-controlls">-->
-<!--    <button><</button>-->
-<!--    <button>></button>-->
-<!--    <label >{{demandes.length}} of {{demandes.length}}</label>-->
-<!--    </div>-->
   </section>
 </main>
 

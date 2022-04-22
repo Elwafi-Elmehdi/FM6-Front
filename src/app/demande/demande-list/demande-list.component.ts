@@ -34,7 +34,7 @@ export class DemandeListComponent implements OnInit {
   public year = new Date().getFullYear();
 
   ngOnInit(): void {
-
+    console.log(this.isAdmin())
     this.generateYears()
     this.service.getDemandes(null).subscribe(res => {
 
@@ -50,14 +50,19 @@ export class DemandeListComponent implements OnInit {
       console.log(this.totalPages);
       // @ts-ignore
       this.demandes = <Array<Demande>> res["content"];
-      for (let i = 0; i < this.totalPages ; i++) {
-        this.arraya.push(i);
-      }
-      console.log(res)
+      this.generatePagination();
     })
   }
 
   public pagination(index:any) {
+    this.filterObj ={
+      age: null,
+      cin:null,
+      fonction:null,
+      codeAdherent:null,
+      telephone:null,
+      anciennete:null
+    }
     this.service.getDemandes(index).subscribe(res => {
       // @ts-ignore
       this.totalPages = <number> res["totalPages"] ;
@@ -67,8 +72,6 @@ export class DemandeListComponent implements OnInit {
       this.last = res.last;
       // @ts-ignore
       this.currentPage = res.number;
-
-      console.log(this.totalPages);
       // @ts-ignore
       this.demandes = <Array<Demande>> res["content"];
       console.log(res)
@@ -79,8 +82,17 @@ export class DemandeListComponent implements OnInit {
 
   recherche() {
     this.service.searchDemandeByCriteria(this.filterObj).subscribe(res => {
-      console.log(res)
-      this.demandes = res;
+      // @ts-ignore
+      this.totalPages = <number> res["totalPages"] ;
+      // @ts-ignore
+      this.first = res.first;
+      // @ts-ignore
+      this.last = res.last;
+      // @ts-ignore
+      this.currentPage = res.number;
+      console.log(this.totalPages);
+      // @ts-ignore
+      this.demandes = <Array<Demande>> res["content"];
     })
   }
 
@@ -128,4 +140,10 @@ export class DemandeListComponent implements OnInit {
   next() {
     this.pagination(this.currentPage+1);
   }
+  generatePagination() {
+    for (let i = 0; i < this.totalPages ; i++) {
+      this.arraya.push(i);
+    }
+  }
+
 }

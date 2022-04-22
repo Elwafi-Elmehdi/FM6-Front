@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
    this.usernme = this.storagedService.get(environment.usernameLabel);
    user = this.service.getUserFromStorage();
    this.role = this.service.role.substr("ROLE_".length);
+    console.log(this.role)
   }
 
   logout() {

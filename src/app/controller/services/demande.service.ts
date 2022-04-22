@@ -61,7 +61,7 @@ export class DemandeService {
     return this.httpClient.delete(this.url,{body:demande});
   }
   searchDemandeByCriteria(obj:any){
-    return  this.httpClient.post<Array<Demande>>(this.url+'criteres/',obj);
+    return  this.httpClient.post(this.url+'criteres/',obj);
   }
 
 }

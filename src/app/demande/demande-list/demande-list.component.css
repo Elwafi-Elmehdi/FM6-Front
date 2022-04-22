@@ -26,6 +26,9 @@ aside.filters {
   background-color: #FFFFFF;
   box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
   border-radius: 27px;
+  height: max-content;
+  padding-bottom: 15px;
+
 }
 label, input{
   display: block;
@@ -39,6 +42,7 @@ label, input{
   box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
   border-radius: 27px;
   padding: 20px;
+  height: max-content;
 }
 .search-criteria{
   margin: 10px 10%;
