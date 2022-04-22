@@ -6,12 +6,14 @@ import {DemandeCreateComponent} from "./demande/demande-create/demande-create.co
 import {DemandeListComponent} from "./demande/demande-list/demande-list.component";
 import {AuthGuard} from "./controller/guards/auth.guard";
 import {RoleGuard} from "./controller/guards/role.guard";
+import {RegisterComponent} from "./user/register/register.component";
 
 const routes: Routes = [
   {path:'',component: LoginComponent},
   {path:'criteres',component: CritereComponent,canActivate:[AuthGuard,RoleGuard]},
   {path:'demandes/creer',component:DemandeCreateComponent,canActivate:[AuthGuard]},
-  {path:'demandes',component:DemandeListComponent,canActivate:[AuthGuard]}
+  {path:'demandes',component:DemandeListComponent,canActivate:[AuthGuard]},
+  {path:'utilisateurs/creer',component:RegisterComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

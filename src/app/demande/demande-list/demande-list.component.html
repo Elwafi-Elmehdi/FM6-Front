@@ -46,7 +46,9 @@
         <button  (click)="isAdmin() && getReport(year)" [hidden]="isAdmin()" class="generer_rapport"  style="background-color: forestgreen;">تنزيل التقرير</button>
        </a>
        <button routerLink="/demandes/creer" >تقديم طلب</button>
+       <button routerLink="/utilisateurs/creer" [hidden]="isAdmin()" >تسجيل المستخدم</button>
        <button routerLink="/criteres" [hidden]="isAdmin()" >المعايير</button>
+
      </div>
 
     </div>

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterComponent implements OnInit {
 
   constructor() { }
-
+  // TODO implement register user with roles GUI and controller
   ngOnInit(): void {
   }
 
