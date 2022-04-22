@@ -14,6 +14,7 @@ import { DemandeListComponent } from './demande/demande-list/demande-list.compon
 import { DemandeCardComponent } from './demande/demande-card/demande-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {AuthGuard} from "./controller/guards/auth.guard";
+import { RegisterComponent } from './user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AuthGuard} from "./controller/guards/auth.guard";
     DemandeCreateComponent,
     DemandeListComponent,
     DemandeCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegisterComponent
   ],
     imports: [
         BrowserModule,
