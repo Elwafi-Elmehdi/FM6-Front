@@ -6,7 +6,7 @@
   position: absolute;
   top: 10%;
   left: 25%;
-  width: 100vw;
+  width: 70vw;
 }
 .card-body {
   position: relative;
@@ -31,7 +31,8 @@
 }
 #logo__fm6 {
   width: 360px;
-  left: 25%;
+  left: 50%;
+  transform: translate(-50%);
   margin: 0 auto;
 }
 

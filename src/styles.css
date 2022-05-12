@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "bootstrap/dist/css/bootstrap.css";
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic&display=swap');
 @import "~normalize.css";
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: Arial,'Poppins';
+  font-family: 'IBM Plex Sans Arabic';
 }
 .form-control:focus .btn:focus .btn:active{
   border-color: #cccccc;
@@ -23,5 +24,9 @@
 }
 .btn__fm6:hover{
   background-color: #EC8C24;
+}
+input:focus{
+  outline: none !important;
+  box-shadow: none !important;
 }
 

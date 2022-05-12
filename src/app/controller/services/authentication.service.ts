@@ -41,12 +41,15 @@ export class AuthenticationService {
     this.user = JSON.parse(<string>this.storageService.get(environment.userLabel));
     return JSON.parse(<string>this.storageService.get(environment.userLabel));
   }
+  public register(user:User|undefined){
+    return this.httpCLient.post(this.url+"/register/",user);
+  }
+
   public login(user:User):boolean{
-    this.httpCLient.post<any>(this.url+'/login/',user).subscribe(data => {
-      console.log(data.role)
-      if(data.username){
-        let user = data
-        console.log(data)
+    this.httpCLient.post<any>(environment.urlBase+'/login/',user).subscribe((data:any) => {
+      if(data.user  && data.token){
+        let user = data.user
+        this.saveToken(data.token[0])
         this.saveUserAndUsername(user)
         this.role = data.role;
         this.router.navigate(['/demandes'])

@@ -16,11 +16,8 @@ export class AuthInterceptor implements HttpInterceptor {
   public url = environment.urlBase;
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const url = request.url;
-    if(url.includes(this.url+'/users/login')){
+    if(url.includes(this.url+'/login')){
       return  next.handle(request);
-    }
-    if(url.includes(this.url+'/users/register')){
-      return next.handle(request);
     }
     this.authService.loadToken();
     const token = this.authService.token;

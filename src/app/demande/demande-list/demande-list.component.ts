@@ -27,14 +27,13 @@ export class DemandeListComponent implements OnInit {
     age: null,
     cin:null,
     fonction:null,
-    codeAdherent:null,
+    adherentCode:null,
     telephone:null,
     anciennete:null
   }
   public year = new Date().getFullYear();
 
   ngOnInit(): void {
-    console.log(this.isAdmin())
     this.generateYears()
     this.service.getDemandes(null).subscribe(res => {
 
@@ -46,8 +45,6 @@ export class DemandeListComponent implements OnInit {
       this.last = res.last;
       // @ts-ignore
       this.currentPage = res.number;
-
-      console.log(this.totalPages);
       // @ts-ignore
       this.demandes = <Array<Demande>> res["content"];
       this.generatePagination();
@@ -55,14 +52,16 @@ export class DemandeListComponent implements OnInit {
   }
 
   public pagination(index:any) {
+
     this.filterObj ={
       age: null,
       cin:null,
       fonction:null,
-      codeAdherent:null,
+      adherentCode:null,
       telephone:null,
       anciennete:null
     }
+
     this.service.getDemandes(index).subscribe(res => {
       // @ts-ignore
       this.totalPages = <number> res["totalPages"] ;
@@ -74,9 +73,10 @@ export class DemandeListComponent implements OnInit {
       this.currentPage = res.number;
       // @ts-ignore
       this.demandes = <Array<Demande>> res["content"];
-      console.log(res)
+      if (this.demandes.length < 12){
+        this.arraya == null;
+      }
     })
-
   }
 
 
@@ -90,9 +90,11 @@ export class DemandeListComponent implements OnInit {
       this.last = res.last;
       // @ts-ignore
       this.currentPage = res.number;
-      console.log(this.totalPages);
       // @ts-ignore
       this.demandes = <Array<Demande>> res["content"];
+      this.arraya  = new Array<number>();
+      this.generatePagination();
+
     })
   }
 
@@ -102,7 +104,7 @@ export class DemandeListComponent implements OnInit {
   }
 
   isAdmin() {
-    return this.authService.user.role ==='ROLE_ADMIN' ? false : true;
+    return this.authService.user.role ==='ROLE_ADMIN' ? true : false;
   }
   generateYears(): Array<Number> {
     const currentDate = new Date();
@@ -115,7 +117,6 @@ export class DemandeListComponent implements OnInit {
 
   getReport(year:number){
     if(year !== null||undefined){
-      console.log(year)
     this.service.getReport(year).subscribe(data => {
       this.downloadFile(data)
     });

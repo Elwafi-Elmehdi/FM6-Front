@@ -16,6 +16,6 @@ export class RoleGuard implements CanActivate {
   constructor(private service:AuthenticationService) {
   }
   private isAdmin(){
-    return this.service.user.role === "ROLE_ADMIN"?true : false;
+    return this.service.user.role === "ROLE_ADMIN"? true : false;
   }
 }

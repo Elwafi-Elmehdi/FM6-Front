@@ -1,3 +1,45 @@
 <app-navbar></app-navbar>
-
+<div class="forma">
+  <div class="demande_creer_header">
+    <h1>مستخدم جديد</h1>
+    <button id="retour" (click)="retour()" >رجوع</button>
+  </div>
+  <hr>
+  <form>
+      <div>
+        <div>
+          <label for="nom">الاسم العائلي بالفرنسية لصاحب الطلب</label>
+          <input type="text" name="nom" id="nom" [(ngModel)]="user.lastname" required>
+        </div>
+        <div>
+          <label for="prenom">الاسم الشخصي بالفرنسية لصاحب الطلب</label>
+          <input type="text" name="prenom" id="prenom" [(ngModel)]="user.firstname" required>
+        </div>
+        <div>
+          <label for="username">إسم المستخدم</label>
+          <input type="text" name="username" id="username" [(ngModel)]="user.username" required>
+        </div>
+      </div>
+      <div>
+        <div>
+          <label for="email">البريد الالكتروني</label>
+          <input type="text" name="email" id="email" [(ngModel)]="user.email" required>
+        </div>
+        <div>
+          <label for="password">كلمة السر</label>
+          <input type="text" name="password" id="password" [(ngModel)]="user.password" required>
+        </div>
+        <div>
+          <label for="role">الدور</label>
+          <select name="role"  id="role" [(ngModel)]="user.role" required>
+            <option value="ROLE_ADMIN">المدير</option>
+            <option value="ROLE_USER">الموظف</option>
+          </select>
+        </div>
+      </div>
+  </form>
+  <div class="action_btns">
+    <button id="register" (click)="save(user)">حفظ المستخدم</button>
+  </div>
+</div>
 <app-footer></app-footer>

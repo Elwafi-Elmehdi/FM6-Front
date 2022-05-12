@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,10 +11,10 @@ import { LoginComponent } from './user/login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { DemandeCreateComponent } from './demande/demande-create/demande-create.component';
 import { DemandeListComponent } from './demande/demande-list/demande-list.component';
-import { DemandeCardComponent } from './demande/demande-card/demande-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {AuthGuard} from "./controller/guards/auth.guard";
 import { RegisterComponent } from './user/register/register.component';
+import {AuthInterceptor} from "./controller/interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -24,7 +24,6 @@ import { RegisterComponent } from './user/register/register.component';
     FooterComponent,
     DemandeCreateComponent,
     DemandeListComponent,
-    DemandeCardComponent,
     NavbarComponent,
     RegisterComponent
   ],
@@ -34,7 +33,7 @@ import { RegisterComponent } from './user/register/register.component';
         FormsModule,
         HttpClientModule
     ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,AuthInterceptor,{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

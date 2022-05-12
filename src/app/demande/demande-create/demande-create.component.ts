@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Demande} from "../../controller/models/demande";
 import {DemandeService} from "../../controller/services/demande.service";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import {Enfant} from "../../controller/models/enfant";
+import {Toast} from 'bootstrap';
+
 
 @Component({
   selector: 'app-demande-create',
@@ -11,10 +13,20 @@ import {Enfant} from "../../controller/models/enfant";
 })
 export class DemandeCreateComponent implements OnInit {
   private _demande = new Demande();
-  constructor(private service:DemandeService,private router:Router,private route:ActivatedRoute) { }
-  public datesNaissance:Array<any> =[];
+  constructor(private service:DemandeService,private router:Router) { }
   get mode() : String {
     return this.service.mode
+  }
+  @ViewChild('myToast',{static:true}) toastEl: any
+  isClosed(){
+    return !this.toastEl.nativeElement.classList.contains('show')
+  }
+  toast:any
+  toggle() {
+    this.toast.show();
+  }
+  untoggle() {
+    this.toast.hide();
   }
 
   get demande(): Demande {
@@ -30,10 +42,11 @@ export class DemandeCreateComponent implements OnInit {
 
   addvalue(){
     this.demande.enfants.push(new Enfant());
-    console.log(this.demande.enfants)
+    // console.log(this.demande.enfants)
   }
 
   ngOnInit(): void {
+    this.toast=new Toast(this.toastEl.nativeElement,{})
     if (this.service.demande != null){
       this.demande = this.service.demande
       this.service.mode = 'UPDATE'
@@ -45,26 +58,22 @@ export class DemandeCreateComponent implements OnInit {
   addDemande(demande: Demande) {
     if (this.mode == "CREATE"){
       this.service.addDemande(demande).subscribe(res => {
-        console.log(res);
+        // console.log(res);
         this.router.navigate(['demandes']);
-        console.log(true)
+        // console.log(true)
       })
     }else {
       this.service.updateDemande(demande).subscribe(res => {
-        console.log(res);
+        // console.log(res);
       })
-      console.log(false);
+      // console.log(false);
       this.router.navigate(['demandes']);
     }
 
   }
   deleteDemande(demande:Demande) {
     this.service.deleteDemande(demande).subscribe(res => {
-      console.log(res)
-      if(res instanceof Demande) {
-        this.router.navigate(['demandes'])
-
-      }
+        this.router.navigateByUrl('/demandes')
     })
   }
 
@@ -73,17 +82,5 @@ export class DemandeCreateComponent implements OnInit {
     this.service.demande = undefined;
     this.service.mode = "CREATE";
     this.router.navigateByUrl("/demandes")
-  }
-  public resolveLogement(){
-      switch (this.demande.logement) {
-        case 0:
-          return "كراء";
-        case 1:
-          return "لدى العائلة أو محسنين";
-        case 2:
-          return "ملحق بالمسجد"
-        default:
-          return "";
-      }
   }
 }

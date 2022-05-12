@@ -3,11 +3,11 @@ body {
 }
 
 main {
-  width: 80%;
-  height: 90%;
+  width: 70%;
+  height: 70%;
   position: absolute;
-  left: 50%;
-  top: 59%;
+  left: 40%;
+  top: 52%;
   transform: translate(-50%, -50%);
   display: flex;
   z-index: 2;
@@ -32,18 +32,21 @@ aside.filters {
 }
 label, input{
   display: block;
+  margin: 4px 0;
+  font-size: 0.1rem;
   line-height: 24px;
 }
 
 .demandes {
   flex: 3;
-  height: 100%;
+  width: 100%;
   background-color: #FFFFFF;
   box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
   border-radius: 27px;
   padding: 20px;
   height: max-content;
 }
+
 .search-criteria{
   margin: 10px 10%;
   display: flex;
@@ -59,6 +62,7 @@ div.filters {
   justify-content: center;
   text-align: right;
 }
+
 .table-controlls{
   position: absolute;
   top: 50%;
@@ -71,6 +75,9 @@ div.filters {
 }
 #recherche, #delete {
   margin: 25px 5px;
+}
+h2{
+  font-size: 36px;
 }
 h4 {
   text-align: center;
@@ -122,7 +129,7 @@ input,select{
 }
 h4 {
   /*margin-top: 10px;*/
-  font-size: 30px;
+  font-size: 35px;
   color: rgba(49,49,49,0.96);
 }
 label {

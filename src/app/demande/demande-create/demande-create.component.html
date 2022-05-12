@@ -117,7 +117,7 @@
       <label for="conditionPhysique">الصفة</label>
       <select name="conditionPhysique" id="conditionPhysique" [value]="demande.conditionPhysique" required [(ngModel)]="demande.conditionPhysique">
         <option selected disabled [hidden]="mode==='UPDATE'? false : true">{{demande.conditionPhysique}}</option>
-        <option value="0">يشتغل</option>
+        <option value="0">ممارس</option>
         <option value="1">عاجز</option>
       </select>
     </div>
@@ -135,8 +135,19 @@
   </form>
   <div class="action_btns">
     <button id="update" (click)="addDemande(demande)">{{mode === "CREATE" ? "تقديم طلب" : "تعديل الطلب"}}</button>
-    <button id="delete" (click)="deleteDemande(demande)" [hidden]="mode ==='UPDATE' ? false : true" >احذف الطلب</button>
+    <button id="delete" (click)="toggle()" [hidden]="mode ==='UPDATE' ? false : true" >احذف الطلب</button>
   </div>
 
+</div>
+<div #myToast role="alert" aria-live="assertive" aria-atomic="true" class="toast fade" data-bs-autohide="false">
+  <div class="toast-header">
+    <strong class="me-auto">تأكيد الحذف</strong>
+    <button type="button" class="btn-close btn-danger" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    <p>هل أنت متأكد أنك تريد حذف؟</p>
+    <button (click)="deleteDemande(demande)">نعم</button>
+    <button (click)="untoggle()" type="button">لا</button>
+  </div>
 </div>
 <app-footer></app-footer>

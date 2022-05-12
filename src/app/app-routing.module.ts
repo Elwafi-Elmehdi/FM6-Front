@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'criteres',component: CritereComponent,canActivate:[AuthGuard,RoleGuard]},
   {path:'demandes/creer',component:DemandeCreateComponent,canActivate:[AuthGuard]},
   {path:'demandes',component:DemandeListComponent,canActivate:[AuthGuard]},
-  {path:'utilisateurs/creer',component:RegisterComponent,canActivate:[AuthGuard]}
+  {path:'utilisateurs/creer',component:RegisterComponent,canActivate:[AuthGuard,RoleGuard]}
 ];
 
 @NgModule({

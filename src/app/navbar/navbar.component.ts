@@ -17,11 +17,11 @@ export class NavbarComponent implements OnInit {
   public role:string|undefined|null;
 
   ngOnInit(): void {
-   let user = new User();
+
    this.usernme = this.storagedService.get(environment.usernameLabel);
-   user = this.service.getUserFromStorage();
-   this.role = this.service.role.substr("ROLE_".length);
-    console.log(this.role)
+   let user = this.service.getUserFromStorage();
+   // @ts-ignore
+    this.role = user.role.substr("ROLE_".length);
   }
 
   logout() {
