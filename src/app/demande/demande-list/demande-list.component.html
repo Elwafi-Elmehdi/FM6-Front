@@ -29,7 +29,7 @@
       <th scope="col">الاسم العائلي</th>
       <th scope="col">السن</th>
       <th scope="col">الأقدمية</th>
-      <th scope="col">رقم الهاتف</th>
+      <th scope="col">إعدادات</th>
       </thead>
       <tbody>
       <tr  *ngFor="let demande of demandes;index as i">
@@ -46,7 +46,7 @@
          <button (click)=" isAdmin() && getLink(demande)" style="color: #EDEDED; background-color: #9F2424;">
            <i class="bi bi-eye-fill"></i>
          </button>
-          <button style="color: #EDEDED; background-color: #9F2424;" (click)=" isAdmin() && getLink(demande)">
+          <button style="color: #EDEDED; background-color: #9F2424;" (click)=" isAdmin() && processDemande(demande.id)">
             <i class="bi bi-calendar-check-fill"></i>
           </button>
         </td>
@@ -107,5 +107,17 @@
     </div>
   </aside>
 </main>
+
+<div #myToast role="alert" aria-live="assertive" aria-atomic="true" class="toast fade" data-bs-autohide="false">
+  <div class="toast-header">
+    <strong class="me-auto">تأكيد الحذف</strong>
+    <button type="button" class="btn-close btn-danger" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    <p>هل أنت متأكد أنك تريد حذف؟</p>
+    <button (click)="process()">نعم</button>
+    <button (click)="untoggle()" type="button">لا</button>
+  </div>
+</div>
 
 <app-footer></app-footer>

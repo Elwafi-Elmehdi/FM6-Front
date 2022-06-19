@@ -13,6 +13,7 @@ export class Critere {
   sfCelibataire:number|undefined;
   sfVeuf:number|undefined;
   sfMarie:number|undefined;
+  sfMort:number|undefined;
 
   logementLouer:number|undefined;
   logementAnnexeMosque:number|undefined;

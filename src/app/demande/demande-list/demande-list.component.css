@@ -14,15 +14,17 @@ main {
   border-radius: 27px;
   padding: 10px;
 }
-main > * {
+
+main>* {
   margin: 0 10px;
   box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
 
 }
+
 aside.filters {
   background-color: pink;
   /*height: 100%;*/
-  flex:1;
+  flex: 1;
   background-color: #FFFFFF;
   box-shadow: 6px 6px 40px rgba(0, 0, 0, 0.1);
   border-radius: 27px;
@@ -30,7 +32,9 @@ aside.filters {
   padding-bottom: 15px;
 
 }
-label, input{
+
+label,
+input {
   display: block;
   margin: 4px 0;
   font-size: 0.1rem;
@@ -47,7 +51,7 @@ label, input{
   height: max-content;
 }
 
-.search-criteria{
+.search-criteria {
   margin: 10px 10%;
   display: flex;
   flex-direction: column;
@@ -55,6 +59,7 @@ label, input{
   text-align: right;
 
 }
+
 div.filters {
   margin: 10px 10%;
   display: flex;
@@ -63,29 +68,36 @@ div.filters {
   text-align: right;
 }
 
-.table-controlls{
+.table-controlls {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
+
 .demande__list_header {
   display: flex;
   justify-content: space-between;
 }
-#recherche, #delete {
+
+#recherche,
+#delete {
   margin: 25px 5px;
 }
-h2{
-  font-size: 36px;
+
+h2 {
+  font-size: 33px;
 }
+
 h4 {
   text-align: center;
 }
-aside > *{
+
+aside>* {
   margin-top: 40px;
 }
-.nav_btns > button {
+
+.nav_btns>button {
   color: #FFFFFF;
   border-radius: 15px;
   font-style: normal;
@@ -99,9 +111,11 @@ aside > *{
   padding: 15px;
   text-align: center;
 }
+
 table {
   margin-top: 15px;
 }
+
 .filterbutton {
   color: #FFFFFF;
   border-radius: 15px;
@@ -116,7 +130,9 @@ table {
   padding: 15px;
   text-align: center;
 }
-input,select{
+
+input,
+select {
   border: 1px solid #EC8C24;
   box-sizing: border-box;
   border-radius: 5px;
@@ -127,20 +143,24 @@ input,select{
   background: #f1f1f1;
   height: 30px;
 }
+
 h4 {
   /*margin-top: 10px;*/
   font-size: 35px;
-  color: rgba(49,49,49,0.96);
+  color: rgba(49, 49, 49, 0.96);
 }
+
 label {
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
 }
+
 .recherche_btn {
   margin-top: 10px;
 }
+
 .generer_rapport {
   color: #FFFFFF;
   border-radius: 15px;
@@ -155,7 +175,30 @@ label {
   padding: 15px;
   text-align: center;
 }
+
 li>a {
   color: #9F2424;
   font-size: large;
+}
+
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+}
+
+.toast-header>button {
+  height: 20px;
+  width: 24px;
+}
+
+.toast-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {DemandeService} from "../../controller/services/demande.service";
 import {Demande} from "../../controller/models/demande";
 import {Router} from "@angular/router";
@@ -147,4 +147,25 @@ export class DemandeListComponent implements OnInit {
     }
   }
 
+  @ViewChild('myToast',{static:true}) toastEl: any
+
+  isClosed(){
+    return !this.toastEl.nativeElement.classList.contains('show')
+  }
+  toast:any;
+  toggle() {
+    this.toastEl.show();
+  }
+  untoggle() {
+    this.toastEl.hide();
+  }
+
+  processDemande(id:any) {
+    console.log(id);
+    this.toggle();
+  }
+
+  process() {
+
+  }
 }
