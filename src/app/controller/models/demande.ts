@@ -30,4 +30,5 @@ export class Demande {
   conditionPhysique:number|undefined;
   enfants:Array<Enfant>= new Array<Enfant>();
   createdAt:string|undefined;
+  commentaire:string|undefined;
 }
