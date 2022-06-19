@@ -29,7 +29,7 @@
       <th scope="col">الاسم العائلي</th>
       <th scope="col">السن</th>
       <th scope="col">الأقدمية</th>
-      <th scope="col">إعدادات</th>
+      <th *ngIf="isAdmin()" scope="col">إعدادات</th>
       </thead>
       <tbody>
       <tr  *ngFor="let demande of demandes;index as i">
@@ -42,13 +42,13 @@
         <td>{{demande.nom}}</td>
         <td>{{demande.age}}</td>
         <td>{{demande.anciennete}}</td>
-        <td  [hidden]="!isAdmin()" style="display: flex; justify-content: space-evenly;">
+        <td  *ngIf="isAdmin()" style="display: flex; justify-content: space-evenly;">
          <button (click)=" isAdmin() && getLink(demande)" style="color: #EDEDED; background-color: #9F2424;">
            <i class="bi bi-eye-fill"></i>
          </button>
-          <button style="color: #EDEDED; background-color: #9F2424;" (click)=" isAdmin() && processDemande(demande.id)">
+          <!-- <button style="color: #EDEDED; background-color: #9F2424;" (click)=" isAdmin() && processDemande(demande.id)">
             <i class="bi bi-calendar-check-fill"></i>
-          </button>
+          </button> -->
         </td>
       </tr>
       </tbody>
@@ -114,7 +114,7 @@
     <button type="button" class="btn-close btn-danger" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
   <div class="toast-body">
-    <p>هل أنت متأكد أنك تريد حذف؟</p>
+    <textarea name="commentaire" id="commentaire" cols="30" rows="10"  ></textarea>
     <button (click)="process()">نعم</button>
     <button (click)="untoggle()" type="button">لا</button>
   </div>

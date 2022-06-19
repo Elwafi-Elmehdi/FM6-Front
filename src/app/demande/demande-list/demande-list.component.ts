@@ -4,7 +4,7 @@ import {Demande} from "../../controller/models/demande";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../controller/services/authentication.service";
 import {compareNumbers} from "@angular/compiler-cli/src/diagnostics/typescript_version";
-
+import {Toast} from 'bootstrap';
 @Component({
   selector: 'app-demande-list',
   templateUrl: './demande-list.component.html',
@@ -12,8 +12,11 @@ import {compareNumbers} from "@angular/compiler-cli/src/diagnostics/typescript_v
 })
 export class DemandeListComponent implements OnInit {
 
-  constructor(private service:DemandeService,private authService:AuthenticationService,private router:Router) { }
-
+  constructor(private service:DemandeService,private authService:AuthenticationService,private router:Router) {
+    
+   }
+  public demande:Demande|undefined;
+  
   public demandes:Array<Demande> = new Array<Demande>();
   public currentPage = 0;
   public totalPages = 1;
@@ -34,6 +37,7 @@ export class DemandeListComponent implements OnInit {
   public year = new Date().getFullYear();
 
   ngOnInit(): void {
+    this.toast=new Toast(this.toastEl.nativeElement,{})
     this.generateYears()
     this.service.getDemandes(null).subscribe(res => {
 
@@ -148,20 +152,18 @@ export class DemandeListComponent implements OnInit {
   }
 
   @ViewChild('myToast',{static:true}) toastEl: any
-
   isClosed(){
     return !this.toastEl.nativeElement.classList.contains('show')
   }
-  toast:any;
+  toast:any
   toggle() {
-    this.toastEl.show();
+    this.toast.show();
   }
   untoggle() {
-    this.toastEl.hide();
+    this.toast.hide();
   }
-
   processDemande(id:any) {
-    console.log(id);
+    this.service.demande = this.demandes.find(d => d.id ===id);
     this.toggle();
   }
 
